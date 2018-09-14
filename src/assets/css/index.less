@@ -1,0 +1,297 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+#box{
+  width: 100%;
+  //头部样式
+  .header{
+    width: 100%;
+    //margin-top: 20px;
+    height: 180px;
+    background-color: #232A3E;
+    .header-title{
+      height: 44px;
+      .title-img{
+        width: 64px;
+        height: 24px;
+        margin-left: 14px;
+        margin-top: 12px;
+      }
+      .title-news{
+        width: 20px;
+        height: 20px;
+        margin-right: 15px;
+        margin-top: 12px;
+        position: relative;
+        .badge{
+          position: absolute;
+          right: -8px;
+          top: -5px;
+        }
+      }
+    }
+    .header-money{
+      height: 65px;
+      position: relative;
+      .money-total{
+        height: 16px;
+        .total{
+          width: 12.8%;
+          height: 16px;
+          line-height: 16px;
+          margin-left: 43.6%;
+          text-align: center;
+          color: #E5EAF1;
+          font-size: 16px;
+        }
+        .eye{
+          width: 15px;
+          height: 10px;
+          line-height: 10px;
+          margin-top: 3px;
+          margin-left: 5px;
+        }
+      }
+      .money-number{
+        width: 73px;
+        height: 22px;
+        line-height: 29px;
+        margin: 12px auto 0;
+        color: #FFFFFF;
+        font-size: 29px;
+      }
+      .money-tixian{
+        width: 70px;
+        height: 27px;
+        position: absolute;
+        right: 0;
+        top: 27px;
+        z-index: 999;
+      }
+    }
+    .header-earnings{
+      height: 51px;
+      padding-top: 20px;
+      display: flex;
+      .earings-box{
+        flex: 1;
+        text-align: center;
+        .earings-title{
+          color: #C3CEDE;
+          font-size: 12px;
+          margin-bottom: 8px;
+        }
+        .earings-number{
+          height: 22px;
+          font-size: 14px;
+          line-height: 14px;
+          color: #FFFFFF;
+        }
+      }
+    }
+    .border-right{
+      border-right: 1px solid #556289;
+    }
+  }
+  //轮播图样式
+  .swipe{
+    background-color: #FFFFFF;
+    width: 100%;
+    height: 37px;
+    border: 1px solid #EAEAEA;
+    box-sizing: border-box;
+    .swipe-icon{
+      width: 55px;
+      height: 14px;
+      margin:8px 13px 0 7px;
+    }
+    .swipe-message{
+      width: 70%;
+      font-size: 12px;
+      font-weight: bold;
+      color: #474747;
+      line-height: 37px;
+      .money{
+        color: #3686FD;
+        font-weight: bold;
+      }
+    }
+  }
+  //菜单选项栏样式
+  .tab{
+    width: 100%;
+    height: 155px;
+    background-color: #FFFFFF;
+    .tab-btns{
+      width: 100%;
+      height: 50%;
+      display: flex;
+      .btn{
+        flex: 1;
+        margin-top: 17px;
+        .icon{
+          width: 26px;
+          height: 26px;
+          margin: 0 auto;
+        }
+        .title{
+          height: 12px;
+          line-height: 12px;
+          margin-top: 9px;
+          text-align: center;
+          color: #333333;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+  //新手指南板块样式
+  .guide{
+    width: 100%;
+    height: 164px;
+    margin-top: 11px;
+    background-color: #FFFFFF;
+    .guide-header{
+      height: 36px;
+      box-sizing: border-box;
+      border-bottom: 1px solid #E3E6EB;
+      .header-left{
+        color: #333333;
+        font-size: 16px;
+        line-height: 16px;
+        font-weight: bold;
+        margin: 10px 0 10px 13px;
+      }
+      .header-right{
+        color: #B2B2B2;
+        font-size: 13px;
+        line-height: 13px;
+        margin: 12px 14px 12px 0;
+      }
+    }
+    .guide-content{
+      height: 128px;
+      .content-left{
+        width: 114px;
+        height: 92px;
+        margin: 18px 33px 20px 25px;
+      }
+      .content-right{
+        width: 186px;
+        height: 92px;
+        margin: 25px 16px 0 0;
+        .right-title{
+          color: #333333;
+          font-size: 17px;
+          line-height: 17px;
+          font-weight: bold;
+          margin-bottom: 9px;
+        }
+        .right-tips{
+          color: #333333;
+          font-size: 13px;
+          line-height: 13px;
+          margin-bottom: 16px;
+          #redword{
+            color: #F13535;
+          }
+        }
+        .right-img{
+          width: 70px;
+          height: 20px;
+        }
+      }
+    }
+  }
+  //金融红包板块样式
+  .board{
+    width: 100%;
+    height: 123px;
+    display: flex;
+    justify-content: space-between;
+    padding: 11px 8px;
+    box-sizing: border-box;
+    .board-btn{
+      width: 115px;
+      height: 101px;
+      .board-title{
+        font-size: 16px;
+        line-height: 16px;
+        color: #FFFFFF;
+        text-align: center;
+        margin: 11px auto 0;
+      }
+      .board-img{
+        width: 33px;
+        height: 33px;
+        margin: 10px auto 0;
+      }
+      .board-tip{
+        font-size: 12px;
+        font-weight: lighter;
+        line-height: 12px;
+        color: #FEFEFE;
+        text-align: center;
+        margin: 12px auto 0;
+      }
+    }
+
+    .left{
+      background: url("../img/Index/blue.png") no-repeat;
+      background-size: 115px 101px;
+    }
+    .middle{
+      background: url("../img/Index/red.png") no-repeat;
+      background-size: 115px 101px;
+    }
+    .right{
+      background: url("../img/Index/yellow.png") no-repeat;
+      background-size: 115px 101px;
+    }
+  }
+  //广告板块样式
+  .ads{
+    width: 100%;
+    height: 167px;
+    background-color: #FFFFFF;
+    margin-bottom: 11px;
+    .ads-header{
+      height: 36px;
+      box-sizing: border-box;
+      border-bottom: 1px solid #E3E6EB;
+      .header-left{
+        color: #333333;
+        font-size: 16px;
+        line-height: 16px;
+        font-weight: bold;
+        margin: 10px 0 10px 13px;
+      }
+      .header-right{
+        color: #B2B2B2;
+        font-size: 13px;
+        line-height: 13px;
+        margin: 12px 14px 12px 0;
+      }
+    }
+    .ads-content{
+      height: 131px;
+      .swiper{
+        margin: 6px auto 0;
+        width: 346px;
+        .content-img{
+          width: 346px;
+          height: 111px;
+          margin: 6px auto 0;
+        }
+      }
+    }
+  }
+}
+
+//.swipe{
+//  background-color: #4C525F;
+//  width: 100%;
+//  height: 36px;
+//  color: #FFFFFF;
+//}
