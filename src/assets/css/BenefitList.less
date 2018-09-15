@@ -48,7 +48,7 @@
     width: 100%;
     height: 67px;
     background-color: #FFFFFF;
-    padding: 12px 16px 15px 41px;
+    padding: 12px 16px 15px 53px;
     box-sizing: border-box;
     .user-pic{
       width: 40px;
@@ -82,7 +82,7 @@
         text-align: center;
       }
       .icon{
-        width: 20px;
+        width: 19px;
         height: 16px;
       }
     }
@@ -96,13 +96,15 @@
       padding: 12px 16px 15px 21px;
       box-sizing: border-box;
       .number{
+        width: 18px;
         font-size: 16px;
         line-height: 40px;
         margin-right: 12px;
+        text-align: center;
       }
       .user-pic{
-        width: 40px;
-        height: 40px;
+        width: 42px;
+        height: 42px;
         border-radius: 50%;
       }
       .user-info{
@@ -111,7 +113,7 @@
         .name{
           color: #333333;
           font-size: 15px;
-          line-height: 15px;
+          line-height: 34px;
         }
         .detail{
           color: #A5A5A5;
@@ -138,28 +140,40 @@
         }
       }
     }
-    .one{
+    .wrap:nth-child(1){
       .number{
         color: #FFA70F;
       }
       .user-pic{
+        box-sizing: border-box;
         border: 2px solid #FFC425;
       }
+      .user-money{
+        color: #E6C687;
+      }
     }
-    .two{
+    .wrap:nth-child(2){
       .number{
         color: #93AAD0;
       }
       .user-pic{
+        box-sizing: border-box;
         border: 2px solid #93AAD0;
       }
+      .user-money{
+        color: #E6C687;
+      }
     }
-    .three{
+    .wrap:nth-child(3){
       .number{
         color: #EE7356;
       }
       .user-pic{
+        box-sizing: border-box;
         border: 2px solid #EE7356;
+      }
+      .user-money{
+        color: #E6C687;
       }
     }
   }

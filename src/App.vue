@@ -5,8 +5,19 @@
 </template>
 
 <script>
-export default {
-  name: 'App'
+  export default {
+  name: 'App',
+    methods:{
+      setHeight () {
+        let height = window.screen.height
+        console.log(height)
+        let app = document.querySelector('#app')
+        app.style.height = `${height}px`
+      }
+    },
+    created () {
+    this.setHeight ()
+    }
 }
 </script>
 
@@ -21,6 +32,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   background-color: #F0F2F4;
   width: 100%;
+  height: 667px;
 }
 a{
   text-decoration: none;

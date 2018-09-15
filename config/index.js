@@ -13,7 +13,10 @@ module.exports = {
     proxyTable: {
       '/api':{
         target:'http://www.futai.com/api/',
-        changeOrigin:true
+        changeOrigin:true,
+        pathRewrite: {
+          '/api':'/'
+        }
       }
     },
 

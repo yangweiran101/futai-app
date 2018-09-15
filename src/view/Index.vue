@@ -207,6 +207,7 @@ export default {
       }
       this.$store.commit("isWeChat", isWX());
     }
+
   },
   created () {
     this.isWeChat()

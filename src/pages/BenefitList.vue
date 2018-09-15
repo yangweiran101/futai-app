@@ -25,96 +25,17 @@
 
       <!--收益排行榜-->
       <div class="rank">
-        <div class="wrap one">
-          <div class="number fleft">1</div>
-          <div class="user-pic fleft"><img src="../assets/img/BenefitList/Head1@1x.png" ></div>
+        <div class="wrap" v-for="(item,index) in rankList" :key="index">
+          <div class="number fleft">{{item.index}}</div>
+          <div class="user-pic fleft"><img :src="item.avatar" ></div>
           <div class="user-info fleft">
             <div class="name">兵来将挡</div>
-            <div class="detail">没有上榜，继续努力</div>
           </div>
           <div class="user-star fright">
             <div class="count">688</div>
             <div class="icon"><img src="../assets/img/BenefitList/icon1@1x.png"></div>
           </div>
-          <div class="user-money fright">￥<span>255.6</span></div>
-        </div>
-        <div class="wrap two">
-          <div class="number fleft">2</div>
-          <div class="user-pic fleft"><img src="../assets/img/BenefitList/Head1@1x.png" ></div>
-          <div class="user-info fleft">
-            <div class="name">兵来将挡</div>
-            <div class="detail">没有上榜，继续努力</div>
-          </div>
-          <div class="user-star fright">
-            <div class="count">688</div>
-            <div class="icon"><img src="../assets/img/BenefitList/icon1@1x.png"></div>
-          </div>
-          <div class="user-money fright">￥<span>255.6</span></div>
-        </div>
-        <div class="wrap three">
-          <div class="number fleft">3</div>
-          <div class="user-pic fleft"><img src="../assets/img/BenefitList/Head1@1x.png" ></div>
-          <div class="user-info fleft">
-            <div class="name">兵来将挡</div>
-            <div class="detail">没有上榜，继续努力</div>
-          </div>
-          <div class="user-star fright">
-            <div class="count">688</div>
-            <div class="icon"><img src="../assets/img/BenefitList/icon1@1x.png"></div>
-          </div>
-          <div class="user-money fright">￥<span>255.6</span></div>
-        </div>
-        <div class="wrap">
-          <div class="number fleft">4</div>
-          <div class="user-pic fleft"><img src="../assets/img/BenefitList/Head1@1x.png" ></div>
-          <div class="user-info fleft">
-            <div class="name">兵来将挡</div>
-            <div class="detail">没有上榜，继续努力</div>
-          </div>
-          <div class="user-star fright">
-            <div class="count">688</div>
-            <div class="icon"><img src="../assets/img/BenefitList/icon1@1x.png"></div>
-          </div>
-          <div class="user-money fright">￥<span>255.6</span></div>
-        </div>
-        <div class="wrap">
-          <div class="number fleft">5</div>
-          <div class="user-pic fleft"><img src="../assets/img/BenefitList/Head1@1x.png" ></div>
-          <div class="user-info fleft">
-            <div class="name">兵来将挡</div>
-            <div class="detail">没有上榜，继续努力</div>
-          </div>
-          <div class="user-star fright">
-            <div class="count">688</div>
-            <div class="icon"><img src="../assets/img/BenefitList/icon1@1x.png"></div>
-          </div>
-          <div class="user-money fright">￥<span>255.6</span></div>
-        </div>
-        <div class="wrap">
-          <div class="number fleft">6</div>
-          <div class="user-pic fleft"><img src="../assets/img/BenefitList/Head1@1x.png" ></div>
-          <div class="user-info fleft">
-            <div class="name">兵来将挡</div>
-            <div class="detail">没有上榜，继续努力</div>
-          </div>
-          <div class="user-star fright">
-            <div class="count">688</div>
-            <div class="icon"><img src="../assets/img/BenefitList/icon1@1x.png"></div>
-          </div>
-          <div class="user-money fright">￥<span>255.6</span></div>
-        </div>
-        <div class="wrap">
-          <div class="number fleft">7</div>
-          <div class="user-pic fleft"><img src="../assets/img/BenefitList/Head1@1x.png" ></div>
-          <div class="user-info fleft">
-            <div class="name">兵来将挡</div>
-            <div class="detail">没有上榜，继续努力</div>
-          </div>
-          <div class="user-star fright">
-            <div class="count">688</div>
-            <div class="icon"><img src="../assets/img/BenefitList/icon1@1x.png"></div>
-          </div>
-          <div class="user-money fright">￥<span>255.6</span></div>
+          <div class="user-money fright">￥<span>{{item.credit2}}</span></div>
         </div>
       </div>
     </div>
@@ -122,11 +43,25 @@
 
 <script>
     export default {
+      data () {
+        return {
+          rankList:[]
+        }
+      },
         methods:{
           goBack () {
             this.$router.go(-1)
+          },
+          getRank () {
+            this.$axios.get('rank').then(res => {
+              console.log(res);
+              this.rankList = res.data
+            })
           }
-        }
+        },
+      created () {
+          this.getRank ()
+      }
     }
 </script>
 

@@ -13,10 +13,10 @@
           <div class="info-img fleft"><img src="../assets/img/Index/red.png" ></div>
           <div class="info-detail fleft">
             <div class="clearfix">
-              <div class="name fleft">迪丽热巴</div>
+              <div class="name fleft">{{userInfo.real_name}}</div>
               <div class="star fleft"><img src="../assets/img/My/vip.png"></div>
             </div>
-            <div class="phone">手机号码&nbsp: <span>133****3333</span></div>
+            <div class="phone">手机号码&nbsp: <span>{{userInfo.user_name}}</span></div>
           </div>
           <div class="info-more fright"><img src="../assets/img/MyWallet/icon2.png" ></div>
         </div>
@@ -122,6 +122,22 @@
       components:{
         TableBar,
         Badge
+      },
+      data () {
+        return {
+          userInfo: {}
+        }
+      },
+      methods:{
+        getData () {
+          this.$axios.get('user').then(res => {
+            console.log(res);
+            this.userInfo = res.data
+          })
+        }
+      },
+      created () {
+        this.getData ()
       }
     }
 </script>
