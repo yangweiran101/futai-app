@@ -68,7 +68,7 @@
         line-height: 16px;
       }
     }
-    input{
+    .count{
       width: 357px;
       height: 44px;
       background-color: #FFFFFF;
@@ -108,6 +108,17 @@
         margin: 0 24px 0 16px;
       }
     }
+    .btn{
+      width: 359px;
+      height: 40px;
+      border-radius: 20px;
+      background-color: #0999E4;
+      margin: 0 auto;
+      font-size: 16px;
+      line-height: 40px;
+      color: #FFFFFF;
+      text-align: center;
+    }
   }
 }
 #payPwd {
@@ -115,10 +126,10 @@
   background-color: #FFFFFF;
   padding: 0 15px 23px;
   box-sizing: border-box;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  //position: fixed;
+  //bottom: 0;
+  //left: 0;
+  //right: 0;
   display: none;
   header {
     border-bottom: 1px solid #E5E5E5;
@@ -127,19 +138,20 @@
     line-height: 46px;
     font-size: 17px;
   }
-  input[type=tel] {
-    //width: 0.1px;
-    //height: 0.1px;
+  input {
+    width: 0.1px;
+    height: 0.1px;
     color: transparent;
     //position: relative;
     //top: 23px;
     background: #FFFFFF;
     //left: 46px;
-    //border: none;
+    border: none;
     font-size: 18px;
     //opacity: 0;
     //z-index: -1;
   }
+  input:focus{outline:none}
   .pwd-wrap {
     width: 269px;
     height: 44px;

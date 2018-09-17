@@ -33,10 +33,11 @@
         <div class="use fleft">当前可提 <span>366.23元</span></div>
         <div class="all fright">全部提现</div>
       </div>
-      <input type="number" placeholder="请输入提现金额">
-      <div class="service-money" @click="goCash">手续费: <span>0.00</span>元</div>
+      <input type="number" placeholder="请输入提现金额" class="count" v-model="money">
+      <div class="service-money">手续费: <span>0.00</span>元</div>
+
       <!--确定按钮-->
-      <Btn>提现</Btn>
+      <div class="btn" @click="goCash">提现</div>
 
       <div class="content-tips">
         <div class="tips-title">提示</div>
@@ -47,7 +48,7 @@
     <!--支付-->
     <div id="payPwd">
       <header>支付密码设置</header>
-      <ul class="pwd-wrap" @click="focus">
+      <ul class="pwd-wrap" @click="goCash">
         <li><i v-if="PayWord.length > 0"></i></li>
         <li><i v-if="PayWord.length > 1"></i></li>
         <li><i v-if="PayWord.length > 2"></i></li>
@@ -55,7 +56,7 @@
         <li><i v-if="PayWord.length > 4"></i></li>
         <li><i v-if="PayWord.length > 5"></i></li>
       </ul>
-      <input ref="tel" type="number" maxlength="6" v-model="PayWord" class="pwd" :onfocus="isfocus" />
+      <input ref="tel" type="number" maxlength="6" v-model="PayWord" class="pwd" @keyup="show($event)"/>
     </div>
 
   </div>
@@ -63,31 +64,32 @@
 
 <script>
   import Header from '../components/Header'
-  import Btn from '../components/blue-btn'
   export default {
     components: {
       Header,
-      Btn,
     },
     data () {
       return {
         isBinding:true,
         PayWord:'',
-        isfocus:false
+        money:''
       }
     },
     methods:{
-      focus () {
-        // this.$refs.pwd.focus();
-      },
       goCash () {
-        // console.log(1)
-        let pwd = document.querySelector('#payPwd');
-        pwd.style.display = 'block';
-        this.isfocus = true
-
-
-      }
+        if (this.money == '') {
+          alart('请输入提现金额')
+        } else {
+          let payPwd = document.querySelector('#payPwd');
+          payPwd.style.display = 'block';
+          document.querySelector('.pwd').focus()
+        }
+      },
+      show (ev){
+        if(ev.keyCode == 13){
+          this.$router.push('/ReviewToCash')
+        }
+      },
     }
   }
 </script>

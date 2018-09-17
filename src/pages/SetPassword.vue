@@ -20,17 +20,15 @@
           <input type="text" class="fleft" placeholder="再次输入交易密码">
         </div>
       </div>
-      <Btn @click="setPwd">确定</Btn>
+      <div class="btn" @click="setPwd">确定</div>
     </div>
 </template>
 
 <script>
   import Header from '../components/Header'
-  import Btn from '../components/blue-btn'
     export default {
       components:{
         Header,
-        Btn,
       },
       data () {
         return {
