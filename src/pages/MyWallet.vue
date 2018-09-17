@@ -59,14 +59,14 @@
       </div>
       <div class="wallet-content">
         <!--钱包明细-->
-        <div class="wrap">
+        <div class="wrap" @click="WithdrawCash('PurseDetail')">
           <div class="icon fleft three"><img src="../assets/img/MyWallet/icon_fxtxmx.png"></div>
           <span>钱包明细</span>
           <div class="nextpage fright"><img src="../assets/img/MyWallet/icon2.png" ></div>
         </div>
 
         <!--提现明细-->
-        <div class="wrap">
+        <div class="wrap" @click="WithdrawCash('CashAboutDetail')">
           <div class="icon fleft three"><img src="../assets/img/MyWallet/iconPut@3x.png"></div>
           <span>提现明细</span>
           <div class="nextpage fright"><img src="../assets/img/MyWallet/icon2.png" ></div>

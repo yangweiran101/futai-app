@@ -46,12 +46,12 @@
         <div class="swipe-icon fleft"><img src="../assets/img/Index/TouTiao.png"></div>
         <!--信息滚动部分-->
         <marquee class="swipe-message fleft">
-          <marquee-item v-for="i in 5" :key="i"  class="align-middle">
-            <span>176****6101</span>
-            实际收益
-            <span class="money">￥1.5</span>,
+          <marquee-item v-for="(item,val) in benifitHead" :key="val"  class="align-middle">
+            <span>{{item.user_name}}</span>
+            实时收益
+            <span class="money">￥{{item.today_profit}}</span>,
             总收益
-            <span class="money">￥125.5</span>
+            <span class="money">￥{{item.total_profit}}</span>
           </marquee-item>
         </marquee>
       </div>
@@ -145,12 +145,12 @@
         <!--广告头部栏-->
         <div class="ads-header">
           <div class="header-left fleft">广告</div>
-          <div class="header-right fright">{{index + 1}}/{{swipelist.length}}</div>
+          <div class="header-right fright">{{swipeindex + 1}}/{{swipelist.length}}</div>
         </div>
         <!--广告栏内容-->
         <div class="ads-content">
           <swiper class="swiper content-img"
-                  v-model="index"
+                  v-model="swipeindex"
                   height="111px"
                   :loop="true"
                   auto
@@ -183,16 +183,19 @@ export default {
   },
   data () {
     return {
-      index: 0,
-      swipelist:[{
+      swipeindex: 0,
+      swipelist:[
+        {
         img: require('../assets/img/Index/index-ads.png'),
-      },{
+        },{
         img: require('../assets/img/Index/index-ads.png'),
-      },{
+        },{
         img: require('../assets/img/Index/index-ads.png'),
-      },{
+        },{
         img: '//inews.gtimg.com/newsapp_bt/0/5241931549/641',
-      },]
+        },
+      ],
+      benifitHead:[]
     }
   },
   methods:{
@@ -206,11 +209,18 @@ export default {
         return (/micromessenger/.test(ua)) ? true : false;
       }
       this.$store.commit("isWeChat", isWX());
+    },
+    getHeadline () {
+      this.$axios.get('headline').then(res => {
+        console.log(res);
+        this.benifitHead = res.data
+      })
     }
 
   },
   created () {
-    this.isWeChat()
+    this.isWeChat();
+    this.getHeadline();
   }
 }
 </script>

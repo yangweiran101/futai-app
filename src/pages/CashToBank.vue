@@ -1,6 +1,9 @@
 <template>
   <div class="cashtobank">
+    <!--头部-->
     <Header v-if="!this.$store.state.isWeChat">提现</Header>
+
+    <!--内容-->
     <div class="content">
       <div class="content-title">到账银行卡</div>
 
@@ -31,13 +34,30 @@
         <div class="all fright">全部提现</div>
       </div>
       <input type="number" placeholder="请输入提现金额">
-      <div class="service-money">手续费: <span>0.00</span>元</div>
+      <div class="service-money" @click="goCash">手续费: <span>0.00</span>元</div>
+      <!--确定按钮-->
       <Btn>提现</Btn>
+
       <div class="content-tips">
         <div class="tips-title">提示</div>
         <div class="tips-wrap">1.付款到账时效为1~3日，最快次日到账. 2.每笔按付款金额收取手续费，按金额0.1%收取，最低1元，最高25元</div>
       </div>
     </div>
+
+    <!--支付-->
+    <div id="payPwd">
+      <header>支付密码设置</header>
+      <ul class="pwd-wrap" @click="focus">
+        <li><i v-if="PayWord.length > 0"></i></li>
+        <li><i v-if="PayWord.length > 1"></i></li>
+        <li><i v-if="PayWord.length > 2"></i></li>
+        <li><i v-if="PayWord.length > 3"></i></li>
+        <li><i v-if="PayWord.length > 4"></i></li>
+        <li><i v-if="PayWord.length > 5"></i></li>
+      </ul>
+      <input ref="tel" type="number" maxlength="6" v-model="PayWord" class="pwd" :onfocus="isfocus" />
+    </div>
+
   </div>
 </template>
 
@@ -51,7 +71,22 @@
     },
     data () {
       return {
-        isBinding:true
+        isBinding:true,
+        PayWord:'',
+        isfocus:false
+      }
+    },
+    methods:{
+      focus () {
+        // this.$refs.pwd.focus();
+      },
+      goCash () {
+        // console.log(1)
+        let pwd = document.querySelector('#payPwd');
+        pwd.style.display = 'block';
+        this.isfocus = true
+
+
       }
     }
   }

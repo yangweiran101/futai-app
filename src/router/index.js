@@ -16,10 +16,15 @@ import SetPassword from '../pages/SetPassword' //我的钱包交易密码设置�
 
 import CashToAli from '../pages/CashToAli' //提现到支付宝页面
 import CashToBank from '../pages/CashToBank' //提现到银行卡页面
+import PurseDetail from '../pages/PurseDetail' //钱包明细页面
+import CashAboutDetail from '../pages/CashAboutDetail' //提现明细页面
+import Detail from '../pages/Detail' //明细详情页面
+import ReviewToCash from '../pages/ReviewToCash' //提现审核中页面
 
 import Login from '../pages/Login' //登录页面
 import Register from '../pages/Register' //注册页面
 
+import Pay from '../components/Pay'
 
 
 
@@ -39,11 +44,17 @@ let routes = [
   {path: '/MessageDetail', component: MessageDetail,meta: {title:'消息中心',keepAlive: false}},
   {path: '/SetPassword', component: SetPassword,meta: {title:'交易密码设置',keepAlive: false}},
 
-  {path: '/CashToAli', component: CashToAli,meta: {title:'提现',keepAlive: false}},
   {path: '/CashToBank', component: CashToBank,meta: {title:'提现',keepAlive: false}},
+  {path: '/CashToAli', component: CashToAli,meta: {title:'提现',keepAlive: false}},
+  {path: '/PurseDetail', component: PurseDetail,meta: {title:'钱包明细',keepAlive: false}},
+  {path: '/CashAboutDetail', component: CashAboutDetail,meta: {title:'提现明细',keepAlive: false}},
+  {path: '/Detail', component: Detail,meta: {title:'明细详情',keepAlive: false}},
+  {path: '/ReviewToCash', component: ReviewToCash,meta: {title:'提现',keepAlive: false}},
 
   {path: '/Login', component: Login,meta: {title:'登录',keepAlive: false}},
   {path: '/Register', component: Register,meta: {title:'快速注册',keepAlive: false}},
+
+  {path: '/Pay', component: Pay,meta: {title:'zhifu',keepAlive: false}},
 ]
 
 const router = new Router({

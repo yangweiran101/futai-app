@@ -6,7 +6,11 @@ import router from './router'
 import axios from './util/axios'
 import store from './store/index'
 import 'lib-flexible/flexible'
+import vuePayKeyboard from '../node_modules/vue-pay-keyboard/dist/vue-pay-keyboard'
+
+
 Vue.prototype.$axios = axios
+Vue.use(vuePayKeyboard)
 
 Vue.config.productionTip = false
 

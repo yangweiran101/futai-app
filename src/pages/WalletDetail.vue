@@ -35,7 +35,7 @@
             </div>
             <div class="wrap">
               <div class="img fleft"><img src="../assets/img/WalletDetail/green.png"></div>
-              <div class="tip fleft">其它 0.00</div>
+              <div class="tip fleft">支出 0.00</div>
             </div>
           </div>
         </div>
