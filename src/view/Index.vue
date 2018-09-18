@@ -211,10 +211,10 @@ export default {
       this.$store.commit("isWeChat", isWX());
     },
     getHeadline () {
-      // this.$axios.get('headline').then(res => {
-      //   console.log(res);
-      //   this.benifitHead = res.data
-      // })
+      this.$axios.get('headline').then(res => {
+        console.log(res);
+        this.benifitHead = res.data
+      })
     }
 
   },

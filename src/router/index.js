@@ -21,11 +21,14 @@ import CashAboutDetail from '../pages/CashAboutDetail' //提现明细页面
 import Detail from '../pages/Detail' //明细详情页面
 import ReviewToCash from '../pages/ReviewToCash' //提现审核中页面
 
+import PersonalData from '../pages/PersonalData' //个人资料页面
+import ChangePhoneNumber from '../pages/ChangePhoneNumber' //换绑手机号页面
+import AlipayBind from '../pages/AlipayBind' //支付宝绑定页面
+import Setting from '../pages/Setting' //设置页面
+import ProblemFeedback from '../pages/ProblemFeedback' //问题反馈页面
+
 import Login from '../pages/Login' //登录页面
 import Register from '../pages/Register' //注册页面
-
-import Pay from '../components/Pay'
-
 
 
 Vue.use(Router)
@@ -44,6 +47,12 @@ let routes = [
   {path: '/MessageDetail', component: MessageDetail,meta: {title:'消息中心',keepAlive: false}},
   {path: '/SetPassword', component: SetPassword,meta: {title:'交易密码设置',keepAlive: false}},
 
+  {path: '/PersonalData', component: PersonalData,meta: {title:'个人资料',keepAlive: false}},
+  {path: '/ChangePhoneNumber', component: ChangePhoneNumber,meta: {title:'换绑手机号',keepAlive: false}},
+  {path: '/AlipayBind', component: AlipayBind,meta: {title:'支付宝绑定',keepAlive: false}},
+  {path: '/Setting', component: Setting,meta: {title:'设置',keepAlive: false}},
+  {path: '/ProblemFeedback', component: ProblemFeedback,meta: {title:'问题反馈',keepAlive: false}},
+
   {path: '/CashToBank', component: CashToBank,meta: {title:'提现',keepAlive: false}},
   {path: '/CashToAli', component: CashToAli,meta: {title:'提现',keepAlive: false}},
   {path: '/PurseDetail', component: PurseDetail,meta: {title:'钱包明细',keepAlive: false}},
@@ -54,7 +63,7 @@ let routes = [
   {path: '/Login', component: Login,meta: {title:'登录',keepAlive: false}},
   {path: '/Register', component: Register,meta: {title:'快速注册',keepAlive: false}},
 
-  {path: '/Pay', component: Pay,meta: {title:'zhifu',keepAlive: false}},
+
 ]
 
 const router = new Router({

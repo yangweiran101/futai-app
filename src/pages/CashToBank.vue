@@ -78,7 +78,7 @@
     methods:{
       goCash () {
         if (this.money == '') {
-          alart('请输入提现金额')
+          alert('请输入提现金额')
         } else {
           let payPwd = document.querySelector('#payPwd');
           payPwd.style.display = 'block';

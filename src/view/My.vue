@@ -7,18 +7,18 @@
             <img src="../assets/img/My/message.png">
             <badge text="1" class="badge"></badge>
           </router-link>
-          <div class="title-setting fright"><img src="../assets/img/My/setting.png"></div>
+          <div class="title-setting fright" @click="goNext('Setting')"><img src="../assets/img/My/setting.png"></div>
         </div>
-        <div class="header-info">
-          <div class="info-img fleft"><img src="../assets/img/Index/red.png" ></div>
+        <div class="header-info" @click="goNext('PersonalData')">
+          <div class="info-img fleft" ><img :src="userInfo.avatar"></div>
           <div class="info-detail fleft">
             <div class="clearfix">
-              <div class="name fleft">{{userInfo.real_name}}</div>
+              <div class="name fleft" >{{userInfo.real_name}}</div>
               <div class="star fleft"><img src="../assets/img/My/vip.png"></div>
             </div>
-            <div class="phone">手机号码&nbsp: <span>{{userInfo.user_name}}</span></div>
+            <div class="phone" >手机号码&nbsp: <span>{{userInfo.user_name}}</span></div>
           </div>
-          <div class="info-more fright"><img src="../assets/img/MyWallet/icon2.png" ></div>
+          <div class="info-more fright" ><img src="../assets/img/MyWallet/icon2.png" ></div>
         </div>
       </div>
 
@@ -51,7 +51,7 @@
           <div class="wrap">
             <div class="icon fleft two"><img src="../assets/img/My/alipay.png"></div>
             <span>支付宝绑定</span>
-            <div class="nextpage fright"><img src="../assets/img/MyWallet/icon2.png" ></div>
+            <div class="nextpage fright" @click="goNext('AlipayBind')"><img src="../assets/img/MyWallet/icon2.png" ></div>
           </div>
 
         </div>
@@ -134,10 +134,13 @@
             console.log(res);
             this.userInfo = res.data
           })
+        },
+        goNext (page) {
+          this.$router.push(`/${page}`)
         }
       },
       created () {
-        this.getData ()
+        this.getData()
       }
     }
 </script>
