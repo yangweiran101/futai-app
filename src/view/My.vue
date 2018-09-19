@@ -27,7 +27,7 @@
         <!--第一项4栏-->
         <div class="content-wrap">
           <!--我的钱包-->
-          <div class="wrap">
+          <div class="wrap" @click="goNext('MyWallet')">
             <div class="icon fleft one"><img src="../assets/img/My/wallet.png"></div>
             <span>我的钱包</span>
             <div class="nextpage fright"><img src="../assets/img/MyWallet/icon2.png" ></div>
@@ -41,17 +41,17 @@
           </div>
 
           <!--我的卡包-->
-          <div class="wrap">
+          <div class="wrap" @click="goNext('MyCardBag')">
             <div class="icon fleft two"><img src="../assets/img/My/KaBao.png"></div>
             <span>我的卡包</span>
             <div class="nextpage fright"><img src="../assets/img/MyWallet/icon2.png" ></div>
           </div>
 
           <!--支付宝绑定-->
-          <div class="wrap">
+          <div class="wrap" @click="goNext('AlipayBind')">
             <div class="icon fleft two"><img src="../assets/img/My/alipay.png"></div>
             <span>支付宝绑定</span>
-            <div class="nextpage fright" @click="goNext('AlipayBind')"><img src="../assets/img/MyWallet/icon2.png" ></div>
+            <div class="nextpage fright"><img src="../assets/img/MyWallet/icon2.png" ></div>
           </div>
 
         </div>

@@ -16,9 +16,9 @@
           <div class="reset fright"><img src="../assets/img/MyWallet/icon2.png" ></div>
           <div class="right fright">{{userInfo.real_name}}</div>
         </div>
-        <div class="wrap">
+        <div class="wrap" @click="goNext('ChangePhoneNumber')">
           <div class="left fleft">手机号码</div>
-          <div class="reset fright" @click="goNext('ChangePhoneNumber')"><img src="../assets/img/MyWallet/icon2.png" ></div>
+          <div class="reset fright" ><img src="../assets/img/MyWallet/icon2.png" ></div>
           <div class="right fright">{{userInfo.user_name}}</div>
         </div>
         <div class="wrap">
@@ -26,9 +26,9 @@
           <div class="reset fright"><img src="../assets/img/MyWallet/icon2.png" ></div>
           <div class="right fright">修改</div>
         </div>
-        <div class="wrap">
+        <div class="wrap" @click="goNext('AlipayBind')">
           <div class="left fleft">支付宝绑定</div>
-          <div class="reset fright" @click="goNext('AlipayBind')"><img src="../assets/img/MyWallet/icon2.png" ></div>
+          <div class="reset fright" ><img src="../assets/img/MyWallet/icon2.png" ></div>
           <div class="right noset fright" v-if="userInfo.is_bind_alipay == 0">未绑定</div>
           <div class="right fright" v-else >修改</div>
         </div>
@@ -38,7 +38,7 @@
           <div class="right noset fright" v-if="userInfo.is_setting_trade_password == 0">未设置</div>
           <div class="right fright">修改</div>
         </div>
-        <div class="wrap">
+        <div class="wrap" @click="goNext('Certification')">
           <div class="left fleft">实名认证</div>
           <div class="reset fright"><img src="../assets/img/MyWallet/icon2.png" ></div>
           <div class="right noset fright" v-if="userInfo.is_real == ''">未认证</div>
@@ -47,7 +47,7 @@
       </div>
 
       <!--微信二维码-->
-      <div class="wechat">
+      <div class="wechat" @click="goNext('WeChatQRCode')">
         <div class="left fleft">微信二维码</div>
         <div class="reset fright"><img src="../assets/img/MyWallet/icon2.png" ></div>
         <div class="right noset fright">未上传</div>

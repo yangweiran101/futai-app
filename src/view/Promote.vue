@@ -10,44 +10,44 @@
         <!--新手指引-->
         <div class="wrap">
           <div class="img fleft"><img src="../assets/img/Promote/iconNovice@3x.png"></div>
-          <div class="title fleft">新手指引</div>
-          <div class="next fright"><img src="../assets/img/Promote/icon1@3x.png" alt=""></div>
-          <div class="tips fright">帮你快速走出新手区</div>
-        </div>
-        <!--平台收益-->
-        <div class="wrap">
-          <div class="img fleft"><img src="../assets/img/Promote/iconProfit@3x.png"></div>
-          <div class="title fleft">平台收益</div>
-          <div class="next fright"><img src="../assets/img/Promote/icon1@3x.png" alt=""></div>
-          <div class="tips fright">稳定增长，收益无忧</div>
-        </div>
-        <!--邀请好友-->
-        <div class="wrap">
-          <div class="img fleft"><img src="../assets/img/Promote/iconFriends@3x.png"></div>
           <div class="title fleft">邀请好友</div>
           <div class="next fright"><img src="../assets/img/Promote/icon1@3x.png" alt=""></div>
           <div class="tips fright">人越多，收益越多</div>
         </div>
+        <!--平台收益-->
+        <div class="wrap">
+          <div class="img fleft"><img src="../assets/img/Promote/iconProfit@3x.png"></div>
+          <div class="title fleft">推广海报</div>
+          <div class="next fright"><img src="../assets/img/Promote/icon1@3x.png" alt=""></div>
+          <div class="tips fright">分享二维码快速增粉</div>
+        </div>
+        <!--邀请好友-->
+        <div class="wrap">
+          <div class="img fleft"><img src="../assets/img/Promote/iconFriends@3x.png"></div>
+          <div class="title fleft">分享链接</div>
+          <div class="next fright"><img src="../assets/img/Promote/icon1@3x.png" alt=""></div>
+          <div class="tips fright">分享收益链接</div>
+        </div>
         <!--推广海报-->
         <div class="wrap">
           <div class="img fleft"><img src="../assets/img/Promote/iconposter@3x.png"></div>
-          <div class="title fleft">推广海报</div>
-          <div class="next fright"><img src="../assets/img/Promote/icon1@3x.png" alt=""></div>
-          <div class="tips fright">分享二维码，快速增粉</div>
-        </div>
-        <!--宣传素材-->
-        <div class="wrap">
-          <div class="img fleft"><img src="../assets/img/Promote/iconSource@3x.png"></div>
           <div class="title fleft">宣传素材</div>
           <div class="next fright"><img src="../assets/img/Promote/icon1@3x.png" alt=""></div>
           <div class="tips fright">中央文案，一键转发</div>
         </div>
+        <!--宣传素材-->
+        <div class="wrap">
+          <div class="img fleft"><img src="../assets/img/Promote/iconSource@3x.png"></div>
+          <div class="title fleft">展业H5</div>
+          <div class="next fright"><img src="../assets/img/Promote/icon1@3x.png" alt=""></div>
+          <div class="tips fright">好玩h5助您展业</div>
+        </div>
         <!--展业H5-->
         <div class="wrap">
           <div class="img fleft"><img src="../assets/img/Promote/iconh5@3x.png"></div>
-          <div class="title fleft">展业H5</div>
+          <div class="title fleft">物料下载</div>
           <div class="next fright"><img src="../assets/img/Promote/icon1@3x.png" alt=""></div>
-          <div class="tips fright">好玩H5助你展业</div>
+          <div class="tips fright">海量宣传资料</div>
         </div>
       </div>
 
