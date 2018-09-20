@@ -17,7 +17,7 @@
             <div class="input-wrap">
               <i class="iconfont icon-yanzhengma"></i>
               <input  type="number" id="regCode" class="verify" placeholder="请输入验证码" name="regCode" v-model="regCode" >
-              <button class="getcode-btn" type="button"  @click="register()" :disabled="disabled">获取验证码</button>
+              <button class="getcode-btn" type="button"  @click="sendVerifyCode($event)" :disabled="disabled">{{text}}</button>
             </div>
             <div class="input-wrap">
               <i class="iconfont icon-mima"></i>
@@ -74,12 +74,74 @@
           ref: '',
           appKindType:'',
           userArray:[],
+          config:{}
         }
       },
       methods:{
         register () {
 
+        },
+        getConfig () {
+          this.$axios.post('config').then(res => {
+            console.log(res);
+            this.config = res.data
+          })
+        },
+        sendVerifyCode(){
+          // let self = this;
+          // this.$validator.validateAll({ userMobile: this.userMobile, code: this.code }).then(result => {
+          //   if (result) {
+          //     //获取验证码
+          //     this.$axios.post('user/sendCode', ({
+          //       userMobile: this.userMobile,
+          //       code: this.code,
+          //       appId:this.appId
+          //     }),{
+          //       headers: {'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8 '},
+          //     }).then(function (response) {
+          //       if(response.data.code === 200){
+          //         Toast({
+          //           message: '验证码发送成功！',
+          //           duration: 2000
+          //         });
+          //         self.disabled = true;
+          //         self.time = self.second;
+          //         self.timer();
+          //       }else{
+          //         Toast({
+          //           message: response.data.message,
+          //           duration: 2000
+          //         });
+          //       }
+          //     })
+          //   }else{
+          //     Toast({
+          //       message: self.errors.items[0].msg,
+          //       duration: 2000
+          //     });
+          //   }
+          // });
+        },
+        timer(){
+          if(this.time > 0){
+            this.time--;
+            setTimeout(this.timer,1000);
+          }
+        },
+      },
+      computed:{
+        text:function(){
+          if(this.time > 0){
+            this.disabled = true;
+            return this.time + '秒后重发';
+          }else{
+            this.disabled = false;
+            return '获取验证码';
+          }
         }
+      },
+      created () {
+        this.getConfig()
       }
     }
 </script>

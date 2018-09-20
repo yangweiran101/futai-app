@@ -16,9 +16,15 @@
         <div class="header-money">
           <div class="money-total">
             <div class="total fleft">总金额</div>
-            <div class="eye fleft"><img src="../assets/img/Index/btn_eyesee.png"></div>
+            <div class="eye fleft" @click="handleShow()">
+              <img src="../assets/img/Index/btn_eyesee.png" v-if="this.$store.state.isShowMoney">
+              <img src="../assets/img/Index/btn_nosee.png" v-if="!this.$store.state.isShowMoney">
+            </div>
           </div>
-          <div class="money-number">16.85</div>
+          <div class="money-number">
+            <span v-if="this.$store.state.isShowMoney">16.85</span>
+            <span v-if="!this.$store.state.isShowMoney">*******</span>
+          </div>
           <router-link to="/MyWallet" class="money-tixian"><img src="../assets/img/Index/LiJiTiXian.png"></router-link>
         </div>
         <!--累计收益，今日收益，昨日收益栏-->
@@ -195,20 +201,17 @@ export default {
         img: '//inews.gtimg.com/newsapp_bt/0/5241931549/641',
         },
       ],
-      benifitHead:[]
+      benifitHead:[],
     }
   },
   methods:{
+    handleShow () {
+      let isShow = !this.$store.state.isShowMoney
+      this.$store.commit("isShowMoney", isShow);
+    },
     display () {
       let guide = document.querySelector('.guide');
       guide.style.display = 'none'
-    },
-    isWeChat () {
-      function isWX(){
-        var ua = navigator.userAgent.toLowerCase();
-        return (/micromessenger/.test(ua)) ? true : false;
-      }
-      this.$store.commit("isWeChat", isWX());
     },
     getHeadline () {
       this.$axios.get('headline').then(res => {
@@ -219,7 +222,6 @@ export default {
 
   },
   created () {
-    this.isWeChat();
     this.getHeadline();
   }
 }

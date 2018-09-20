@@ -49,15 +49,13 @@
       <!--储蓄卡有卡-->
       <div class="exist" v-if="isDeposit&&option === 2">
         <!--储蓄卡-->
-        <Slider>
-          <div class="card" v-if="option === 2">
+        <div class="card" v-if="option === 2">
             <img src="../assets/img/MyCardBag/youzheng.png">
             <div class="logo"><img src="../assets/img/MyCardBag/logo/youzheng.png"></div>
             <div class="bank">中国邮政</div>
             <div class="type">储蓄卡</div>
             <div class="card-number">**** **** **** 6539</div>
           </div>
-        </Slider>
 
         <!--更换储蓄卡-->
         <div class="addcard" v-if="option === 2" @click="goNext('ReplaceCard')">

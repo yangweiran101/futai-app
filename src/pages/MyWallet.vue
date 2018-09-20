@@ -12,10 +12,14 @@
         <div class="header-money">
           <div class="money-total">
             <div class="total fleft">总金额</div>
-            <div class="eye fleft"><img src="../assets/img/Index/btn_eyesee.png"></div>
+            <div class="eye fleft" @click="handleShow()">
+              <img src="../assets/img/Index/btn_eyesee.png" v-if="this.$store.state.isShowMoney">
+              <img src="../assets/img/Index/btn_nosee.png" v-if="!this.$store.state.isShowMoney">
+            </div>
           </div>
           <div class="money-number">
-            16.85
+            <span v-if="this.$store.state.isShowMoney">16.85</span>
+            <span v-if="!this.$store.state.isShowMoney">*******</span>
             <!--总金额详情-->
             <router-link to="/WalletDetail" class="detail"><img src="../assets/img/MyWallet/icon1@3x.png" ></router-link>
           </div>
@@ -95,12 +99,16 @@
       },
       data () {
         return {
-          show: false
+          show: true
         }
       },
        methods:{
          goBack(){
            this.$router.go(-1)
+         },
+         handleShow () {
+           let isShow = !this.$store.state.isShowMoney
+           this.$store.commit("isShowMoney", isShow);
          },
          onCancel () {
 

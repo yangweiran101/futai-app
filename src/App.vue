@@ -6,19 +6,20 @@
 
 <script>
   export default {
-  name: 'App',
+    name: 'App',
     methods:{
-      setHeight () {
-        let height = window.screen.height
-        console.log(height)
-        let app = document.querySelector('#app')
-        app.style.height = `${height}px`
-      }
+      isWeChat () {
+        function isWX(){
+          var ua = navigator.userAgent.toLowerCase();
+          return (/micromessenger/.test(ua)) ? true : false;
+        }
+        this.$store.commit("isWeChat", isWX());
+      },
     },
     created () {
-    this.setHeight ()
+    this.isWeChat ()
     }
-}
+  }
 </script>
 
 <style>
@@ -32,7 +33,7 @@
   -moz-osx-font-smoothing: grayscale;
   background-color: #F0F2F4;
   width: 100%;
-  height: 667px;
+  height: 100vh;
 }
 a{
   text-decoration: none;

@@ -29,7 +29,11 @@ import WeChatQRCode from '../pages/WeChatQRCode' //微信二维码页面
 import ChangePhoneNumber from '../pages/ChangePhoneNumber' //换绑手机号页面
 import AlipayBind from '../pages/AlipayBind' //支付宝绑定页面
 import Certification from '../pages/Certification' //实名认证页面
+import MySuperiors from '../pages/MySuperiors' //我的上级页面
+import AboutUs from '../pages/AboutUs' //关于我们页面
 
+import Posters from '../pages/Posters' //推广海报图页面
+import ShowH5 from '../pages/ShowH5' //展业H5页面
 
 import Setting from '../pages/Setting' //设置页面
 import ProblemFeedback from '../pages/ProblemFeedback' //问题反馈页面
@@ -58,6 +62,11 @@ let routes = [
   {path: '/ChangePhoneNumber', component: ChangePhoneNumber,meta: {title:'换绑手机号',keepAlive: false}},
   {path: '/AlipayBind', component: AlipayBind,meta: {title:'支付宝绑定',keepAlive: false}},
   {path: '/Certification', component: Certification,meta: {title:'实名认证',keepAlive: false}},
+  {path: '/MySuperiors', component: MySuperiors,meta: {title:'我的上级',keepAlive: false}},
+  {path: '/AboutUs', component: AboutUs,meta: {title:'关于我们',keepAlive: false}},
+
+  {path: '/Posters', component: Posters,meta: {title:'推广海报图',keepAlive: false}},
+  {path: '/ShowH5', component: ShowH5,meta: {title:'展业H5',keepAlive: false}},
 
   {path: '/Setting', component: Setting,meta: {title:'设置',keepAlive: false}},
   {path: '/ProblemFeedback', component: ProblemFeedback,meta: {title:'问题反馈',keepAlive: false}},
