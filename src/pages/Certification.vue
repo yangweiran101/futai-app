@@ -52,15 +52,19 @@
           </div>
           <div class="wrap clearfix border">
             <div class="left fleft">所属银行</div>
-            <input type="text" class="fleft" placeholder="请填写签发日期">
+            <input type="text" class="fleft" placeholder="请选择银行">
+            <div class="reset fright" ><img src="../assets/img/MyWallet/icon2.png" ></div>
           </div>
-          <div class="wrap clearfix">
+          <div class="wrap clearfix border">
             <div class="left fleft">地区</div>
-            <input type="text" class="fleft" placeholder="请选择开户地区">
+            <input type="text" :focus="show" class="fleft" v-model="area" placeholder="请选择开户地区">
+            <div class="reset fright" @click="show"><img src="../assets/img/MyWallet/icon2.png" ></div>
+            <vue-city-picker ref="picker" @select="select"></vue-city-picker>
           </div>
           <div class="wrap clearfix">
             <div class="left fleft">开户行</div>
             <input type="text" class="fleft" placeholder="请选择开户行">
+            <div class="reset fright"><img src="../assets/img/MyWallet/icon2.png" ></div>
           </div>
         </div>
       </div>
@@ -69,10 +73,26 @@
 
 <script>
   import Header from '../components/Header'
+  import vueCityPicker from 'vue-city-bspicker'
     export default {
       name: "Certification",
       components:{
-        Header
+        Header,
+        vueCityPicker
+      },
+      data () {
+        return {
+          area:''
+        }
+      },
+      methods:{
+        show: function(){
+          this.$refs['picker'].show();
+        },
+        select: function(){
+          this.area = arguments[2];
+          console.log(this.area);
+        }
       }
     }
 </script>

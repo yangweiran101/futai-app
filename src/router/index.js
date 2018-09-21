@@ -12,7 +12,7 @@ import BenefitList from '../pages/BenefitList' //首页收益榜页面
 import WalletDetail from '../pages/WalletDetail' //我的钱包页面
 import Message from '../pages/Message' //首页消息中心页面
 import MessageDetail from '../pages/MessageDetail' //消息中心详情页面
-import SetPassword from '../pages/SetTradePassword' //我的钱包交易密码设置页面
+import SetTradePassword from '../pages/SetTradePassword' //我的钱包交易密码设置页面
 
 import CashToAli from '../pages/CashToAli' //提现到支付宝页面
 import CashToBank from '../pages/CashToBank' //提现到银行卡页面
@@ -41,6 +41,9 @@ import ProblemFeedback from '../pages/ProblemFeedback' //问题反馈页面
 import Login from '../pages/Login' //登录页面
 import Register from '../pages/Register' //注册页面
 
+import updata1 from '../components/updata1' //上传页面
+// import updata from '../components/updata' //上传页面
+
 Vue.use(Router)
 
 let routes = [
@@ -55,7 +58,7 @@ let routes = [
   {path: '/WalletDetail', component: WalletDetail,meta: {title:'我的钱包',keepAlive: false}},
   {path: '/Message', component: Message,meta: {title:'消息中心',keepAlive: false}},
   {path: '/MessageDetail', component: MessageDetail,meta: {title:'消息中心',keepAlive: false}},
-  {path: '/SetPassword', component: SetPassword,meta: {title:'交易密码设置',keepAlive: false}},
+  {path: '/SetTradePassword', component: SetTradePassword,meta: {title:'交易密码设置',keepAlive: false}},
 
   {path: '/PersonalData', component: PersonalData,meta: {title:'个人资料',keepAlive: false}},
   {path: '/WeChatQRCode', component: WeChatQRCode,meta: {title:'微信二维码',keepAlive: false}},
@@ -83,6 +86,9 @@ let routes = [
 
   {path: '/Login', component: Login,meta: {title:'登录',keepAlive: false}},
   {path: '/Register', component: Register,meta: {title:'快速注册',keepAlive: false}},
+
+  {path: '/updata1', component: updata1,meta: {title:'上传',keepAlive: false}},
+  // {path: '/updata', component: updata,meta: {title:'上传',keepAlive: false}},
 
 ]
 

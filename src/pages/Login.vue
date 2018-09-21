@@ -58,7 +58,7 @@
           this.$router.push('/')
         },
         login () {
-          this.$axios.post('login',this.form).then(res => {
+          this.$axios.post('/login',this.form).then(res => {
             let token = `${res.data.token_type} ${res.data.access_token}`
             this.$store.commit("getLoginToken",token)
             console.log('登陆成功')

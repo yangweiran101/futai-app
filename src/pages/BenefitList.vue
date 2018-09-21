@@ -29,11 +29,18 @@
           <div class="number fleft">{{item.index}}</div>
           <div class="user-pic fleft"><img :src="item.avatar" ></div>
           <div class="user-info fleft">
-            <div class="name">兵来将挡</div>
+            <div class="name">{{item.user_name}}</div>
           </div>
           <div class="user-star fright">
-            <div class="count">688</div>
-            <div class="icon"><img src="../assets/img/BenefitList/icon1@1x.png"></div>
+            <div class="count">{{item.thumbs_up_count}}</div>
+            <!--未点亮状态-->
+            <div class="icon" v-if="item.is_thumbs_up == 0" @click="likes(item.uid)">
+              <img src="../assets/img/BenefitList/icon1@1x.png">
+            </div>
+            <!--点亮状态-->
+            <div class="icon" v-else>
+              <img src="../assets/img/BenefitList/icon2@1x.png">
+            </div>
           </div>
           <div class="user-money fright">￥<span>{{item.credit2}}</span></div>
         </div>
@@ -53,9 +60,14 @@
             this.$router.go(-1)
           },
           getRank () {
-            this.$axios.get('rank').then(res => {
+            this.$axios.get('v1/rank').then(res => {
               console.log(res);
               this.rankList = res.data
+            })
+          },
+          likes (id) {
+            this.$axios.post('v1/rank/thumbsup',{uid:id}).then(res => {
+              console.log(res);
             })
           }
         },

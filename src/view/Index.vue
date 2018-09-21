@@ -22,7 +22,7 @@
             </div>
           </div>
           <div class="money-number">
-            <span v-if="this.$store.state.isShowMoney">16.85</span>
+            <span v-if="this.$store.state.isShowMoney">{{userInfo.credit2}}</span>
             <span v-if="!this.$store.state.isShowMoney">*******</span>
           </div>
           <router-link to="/MyWallet" class="money-tixian"><img src="../assets/img/Index/LiJiTiXian.png"></router-link>
@@ -32,17 +32,17 @@
           <!--累计收益显示-->
           <div class="earings-box">
             <div class="earings-title">累计收益</div>
-            <div class="earings-number ">116.56</div>
+            <div class="earings-number ">{{profit.total_profit}}</div>
           </div>
           <!--今日收益显示-->
           <div class="earings-box">
             <div class="earings-title">今日收益</div>
-            <div class="earings-number ">2.53</div>
+            <div class="earings-number ">{{profit.today_profit}}</div>
           </div>
           <!--昨日收益显示-->
           <div class="earings-box">
             <div class="earings-title">昨日收益</div>
-            <div class="earings-number">0.00</div>
+            <div class="earings-number">{{profit.yesterday_profit}}</div>
           </div>
         </div>
       </div>
@@ -202,9 +202,23 @@ export default {
         },
       ],
       benifitHead:[],
+      userInfo:{},
+      profit:{}
     }
   },
   methods:{
+    getData () {
+      this.$axios.get('v1/user').then(res => {
+        // console.log(res);
+        this.userInfo = res.data
+      })
+    },
+    getProfit () {
+      this.$axios.get('v1/profit').then(res => {
+        console.log(res);
+        this.profit = res.data
+      })
+    },
     handleShow () {
       let isShow = !this.$store.state.isShowMoney
       this.$store.commit("isShowMoney", isShow);
@@ -214,7 +228,7 @@ export default {
       guide.style.display = 'none'
     },
     getHeadline () {
-      this.$axios.get('headline').then(res => {
+      this.$axios.get('v1/profit/headline').then(res => {
         // console.log(res);
         this.benifitHead = res.data
       })
@@ -222,6 +236,8 @@ export default {
 
   },
   created () {
+    this.getData();
+    this.getProfit();
     this.getHeadline();
   }
 }

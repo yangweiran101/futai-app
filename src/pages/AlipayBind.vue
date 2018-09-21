@@ -6,18 +6,17 @@
       <div class="content">
         <div class="wrap">
           <i class="iconfont icon-yonghu1 fleft"></i>
-          <input type="text" class="fleft" v-model="userInfo.real_name">
+          <input type="text" class="fleft" placeholder="请输入您的真实姓名">
           <div class="clear fright"><img src="../assets/img/Login/clear.png"/></div>
         </div>
         <div class="wrap">
           <i class="iconfont icon-shouji1 fleft" ></i>
-          <input type="text" class="fleft" v-model="userInfo.user_name">
+          <input type="text" class="fleft" placeholder="请输入您的账号">
           <div class="clear fright"><img src="../assets/img/Login/clear.png"/></div>
         </div>
         <div class="wrap">
           <i class="iconfont icon-anquan fleft"></i>
-          <input type="text" class="fleft">
-          <div class="code fright">点击获取</div>
+          <input type="text" class="fleft" placeholder="再次输入您的账号">
         </div>
       </div>
 
@@ -43,7 +42,7 @@
 
         },
         getData () {
-          this.$axios.get('user').then(res => {
+          this.$axios.get('v1/user').then(res => {
             this.userInfo = res.data
           })
         }

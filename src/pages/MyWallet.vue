@@ -18,7 +18,7 @@
             </div>
           </div>
           <div class="money-number">
-            <span v-if="this.$store.state.isShowMoney">16.85</span>
+            <span v-if="this.$store.state.isShowMoney">{{userInfo.credit2}}</span>
             <span v-if="!this.$store.state.isShowMoney">*******</span>
             <!--总金额详情-->
             <router-link to="/WalletDetail" class="detail"><img src="../assets/img/MyWallet/icon1@3x.png" ></router-link>
@@ -30,17 +30,17 @@
           <!--累计收益显示-->
           <div class="earings-box">
             <div class="earings-title">累计收益</div>
-            <div class="earings-number ">116.56</div>
+            <div class="earings-number ">{{profit.total_profit}}</div>
           </div>
           <!--今日收益显示-->
           <div class="earings-box">
             <div class="earings-title">今日收益</div>
-            <div class="earings-number ">2.53</div>
+            <div class="earings-number ">{{profit.today_profit}}</div>
           </div>
           <!--昨日收益显示-->
           <div class="earings-box">
             <div class="earings-title">昨日收益</div>
-            <div class="earings-number">0.00</div>
+            <div class="earings-number">{{profit.yesterday_profit}}</div>
           </div>
         </div>
       </div>
@@ -99,7 +99,9 @@
       },
       data () {
         return {
-          show: true
+          show: false,
+          userInfo:{},
+          profit:{}
         }
       },
        methods:{
@@ -109,6 +111,23 @@
          handleShow () {
            let isShow = !this.$store.state.isShowMoney
            this.$store.commit("isShowMoney", isShow);
+         },
+         getData() {
+           this.$axios.get('v1/user').then(res => {
+             console.log(res);
+             this.userInfo = res.data
+             if (res.data.is_setting_trade_password == 1) {
+               this.show = false
+             } else {
+               this.show = true
+             }
+           })
+         },
+         getProfit () {
+           this.$axios.get('v1/profit').then(res => {
+             console.log(res);
+             this.profit = res.data
+           })
          },
          onCancel () {
 
@@ -121,7 +140,8 @@
          }
        },
        created () {
-
+        this.getData();
+         this.getProfit();
        }
     }
 </script>

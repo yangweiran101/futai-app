@@ -153,14 +153,13 @@
       },
       methods:{
         getData () {
-          this.$axios.get('user').then(res => {
+          this.$axios.get('v1/user').then(res => {
             console.log(res);
             this.userInfo = res.data
           })
         },
         getConfig () {
           this.$axios.post('config').then(res => {
-            console.log(res);
             this.config = res.data
           })
         },

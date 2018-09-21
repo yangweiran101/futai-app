@@ -1,6 +1,6 @@
 <template>
     <div class="h5">
-      <Header v-if="!this.$store.state.isWeChat">展业H5</Header>
+      <!--<Header v-if="!this.$store.state.isWeChat">展业H5</Header>-->
 
       <!--展业板块-->
       <div class="show">

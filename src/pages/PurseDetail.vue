@@ -23,10 +23,10 @@
       <div class="detail" v-if="!isData">
         <div class="wrap" v-for="(item,key) in DetailData" :key="key">
           <div class="left fleft">
-            <div class="title">{{item.title}}</div>
-            <div class="time">{{item.time}}</div>
+            <div class="title">{{item.remark}}</div>
+            <div class="time">{{item.created_at}}</div>
           </div>
-          <div class="right fright">{{item.count}}</div>
+          <div class="right fright">{{item.num}}</div>
         </div>
       </div>
     </div>
@@ -43,53 +43,26 @@
         return {
           option: 1,
           isData: false,
-          DetailData:[
-            {title:'购买XXXXXX商品',time:'2018-10-21 15:32:35',count:-100},
-            {title:'支付宝****3648提现',time:'2018-10-21 15:32:35',count:-200},
-            {title:'购买yyyyy商品',time:'2018-10-21 15:32:35',count:+500},
-            {title:'购买aaaa商品',time:'2018-10-21 15:32:35',count:-100},
-            {title:'购买666商品',time:'2018-10-21 15:32:35',count:+100},
-            {title:'购买XXXXXX商品',time:'2018-10-21 15:32:35',count:-100},
-          ],
-          total:[
-            {title:'购买XXXXXX商品',time:'2018-10-21 15:32:35',count:-100},
-            {title:'支付宝****3648提现',time:'2018-10-21 15:32:35',count:-200},
-            {title:'购买yyyyy商品',time:'2018-10-21 15:32:35',count:+500},
-            {title:'购买aaaa商品',time:'2018-10-21 15:32:35',count:-100},
-            {title:'购买666商品',time:'2018-10-21 15:32:35',count:+100},
-            {title:'购买XXXXXX商品',time:'2018-10-21 15:32:35',count:-100},
-          ],
+          DetailData:[]
         }
       },
       methods: {
         getDetail (id) {
           this.option = id
-          //选择全部时
-          if (id === 1) {
-            this.DetailData = []
-            this.DetailData = this.total
-            // console.log(this.DetailData);
-            }
-          //选择收入时
+          let status = null
           if (id === 2) {
-            this.DetailData = []
-            this.total.forEach(val => {
-              if (val.count > 0) {
-                this.DetailData.push(val)
-              }
-            })
-            // console.log(this.DetailData);
+            status = 1
+          }else if (id === 3) {
+            status = 2
           }
-          //选择支出时
-          if (id === 3) {
-            this.DetailData = []
-            this.total.forEach(val => {
-              if (val.count < 0) {
-                this.DetailData.push(val)
-              }
-            })
-            // console.log(this.DetailData);
-          }
+          this.$axios.get(`v1/user/finance/log/credit2?status=${status}`).then(res => {
+            // console.log(res);
+            if (res.total == 0) {
+              this.isData = true
+            }
+            this.DetailData = res.data.data
+          })
+
         }
       },
       created () {

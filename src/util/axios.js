@@ -1,5 +1,4 @@
 import Vue from 'vue'
-import api from './api'
 import instance from './config'
 
 import store from '../store/index'
@@ -11,7 +10,7 @@ let xhr = {
       let token = `${store.state.token}`
       // console.log(token);
       instance.defaults.headers.Authorization = token
-      instance.get(api[url],params).then(res => {
+      instance.get(url,params).then(res => {
         resolve(res.data)
       }).catch(err => {
         console.log(err)
@@ -21,7 +20,10 @@ let xhr = {
   },
   post(url,params){
     return new Promise((resolve,reject) => {
-      instance.post(api[url],params).then(res => {
+      let token = `${store.state.token}`
+      // console.log(token);
+      instance.defaults.headers.Authorization = token
+      instance.post(url,params).then(res => {
         resolve(res.data)
       }).catch((err) => {
         console.log(err)
