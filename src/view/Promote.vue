@@ -8,7 +8,7 @@
       <!--选项栏-->
       <div class="content">
         <!--邀请好友-->
-        <div class="wrap">
+        <div class="wrap" @click="goNext('InviteFriend')">
           <div class="img fleft"><img src="../assets/img/Promote/iconNovice@3x.png"></div>
           <div class="title fleft">邀请好友</div>
           <div class="next fright"><img src="../assets/img/Promote/icon1@3x.png" alt=""></div>

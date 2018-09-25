@@ -229,7 +229,7 @@ export default {
     },
     getHeadline () {
       this.$axios.get('v1/profit/headline').then(res => {
-        // console.log(res);
+        console.log(res);
         this.benifitHead = res.data
       })
     }

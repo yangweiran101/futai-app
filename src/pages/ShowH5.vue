@@ -5,7 +5,7 @@
       <!--展业板块-->
       <div class="show">
         <div class="swiper-container" id="swiper1">
-          <div class="swiper-wrapper">
+          <div class="swiper-wrapper" >
             <div class="swiper-slide">
               <img src="../assets/img/ShowH5/AllBackground-1@2x.png" alt="">
             </div>
@@ -28,8 +28,8 @@
         </div>
         <div class="downPage" @click="downPage">
         </div>
-        <div class="share" @click="share">
-        </div>
+        <!--<div class="share" @click="share">-->
+        <!--</div>-->
       </div>
     </div>
 </template>

@@ -1,7 +1,10 @@
 <template>
-  <div class="header">
-    <div class="header-back" @click="goBack()"><img src="../assets/img/Agent/back.png"></div>
-    <div class="header-title" ><slot></slot></div>
+  <div>
+    <div class="header">
+      <div class="header-back" @click="goBack()"><img src="../assets/img/Agent/back.png"></div>
+      <div class="header-title" ><slot></slot></div>
+    </div>
+    <div class="block"></div>
   </div>
 </template>
 

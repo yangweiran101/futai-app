@@ -33,7 +33,9 @@ import MySuperiors from '../pages/MySuperiors' //我的上级页面
 import AboutUs from '../pages/AboutUs' //关于我们页面
 
 import Posters from '../pages/Posters' //推广海报图页面
+import InviteFriend from '../pages/InviteFriend' //邀请好友页面
 import ShowH5 from '../pages/ShowH5' //展业H5页面
+import NoviceGuidance from '../pages/NoviceGuidance' //新手指引页面
 
 import Setting from '../pages/Setting' //设置页面
 import ProblemFeedback from '../pages/ProblemFeedback' //问题反馈页面
@@ -42,7 +44,7 @@ import Login from '../pages/Login' //登录页面
 import Register from '../pages/Register' //注册页面
 
 import updata1 from '../components/updata1' //上传页面
-// import updata from '../components/updata' //上传页面
+import updata from '../components/updata' //上传页面
 
 Vue.use(Router)
 
@@ -69,7 +71,9 @@ let routes = [
   {path: '/AboutUs', component: AboutUs,meta: {title:'关于我们',keepAlive: false}},
 
   {path: '/Posters', component: Posters,meta: {title:'推广海报图',keepAlive: false}},
+  {path: '/InviteFriend', component: InviteFriend,meta: {title:'邀请好友',keepAlive: false}},
   {path: '/ShowH5', component: ShowH5,meta: {title:'展业H5',keepAlive: false}},
+  {path: '/NoviceGuidance', component: NoviceGuidance,meta: {title:'新手指引',keepAlive: false}},
 
   {path: '/Setting', component: Setting,meta: {title:'设置',keepAlive: false}},
   {path: '/ProblemFeedback', component: ProblemFeedback,meta: {title:'问题反馈',keepAlive: false}},
@@ -88,7 +92,7 @@ let routes = [
   {path: '/Register', component: Register,meta: {title:'快速注册',keepAlive: false}},
 
   {path: '/updata1', component: updata1,meta: {title:'上传',keepAlive: false}},
-  // {path: '/updata', component: updata,meta: {title:'上传',keepAlive: false}},
+  {path: '/updata', component: updata1,meta: {title:'上传',keepAlive: false}},
 
 ]
 

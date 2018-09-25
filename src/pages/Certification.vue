@@ -33,7 +33,11 @@
           <div class="wrap clearfix">
             <div class="left fleft">失效日期</div>
             <input type="text" class="fleft" placeholder="请填写失效日期">
-            <span class="fright">长期</span><input type="checkbox" class="checkbox fright">
+            <span class="fright">长期</span>
+            <div class="checkbox fright" @click="handleIsLong">
+              <img src="../assets/img/Certification/yes.png" v-if="isLong">
+              <img src="../assets/img/Certification/no.png" v-else>
+            </div>
           </div>
         </div>
       </div>
@@ -52,8 +56,9 @@
           </div>
           <div class="wrap clearfix border">
             <div class="left fleft">所属银行</div>
-            <input type="text" class="fleft" placeholder="请选择银行">
-            <div class="reset fright" ><img src="../assets/img/MyWallet/icon2.png" ></div>
+            <input v-model="value1" type="text" class="fleft" placeholder="请选择银行">
+            <div class="reset fright" ><img src="../assets/img/MyWallet/icon2.png" @click="handleShow"></div>
+            <popup-picker class="picker" :data="list" v-model="value1" @on-hide="onHide" :show="isShow"></popup-picker>
           </div>
           <div class="wrap clearfix border">
             <div class="left fleft">地区</div>
@@ -63,36 +68,70 @@
           </div>
           <div class="wrap clearfix">
             <div class="left fleft">开户行</div>
-            <input type="text" class="fleft" placeholder="请选择开户行">
-            <div class="reset fright"><img src="../assets/img/MyWallet/icon2.png" ></div>
+            <input type="text" class="fleft" placeholder="请填写开户行">
+            <!--<div class="reset fright"><img src="../assets/img/MyWallet/icon2.png" ></div>-->
           </div>
         </div>
       </div>
+
+      <!--确定按钮-->
+      <div class="btn" @click="submit()">提交</div>
     </div>
 </template>
 
 <script>
   import Header from '../components/Header'
   import vueCityPicker from 'vue-city-bspicker'
+  import { PopupPicker } from 'vux'
     export default {
       name: "Certification",
       components:{
         Header,
-        vueCityPicker
+        vueCityPicker,
+        PopupPicker
       },
       data () {
         return {
-          area:''
+          area:'',
+          isLong: false,
+          list: [['招商银行','中国工商银行','中国建设银行', '浦东发展银行', '中国农业银行', '中国民生银行',
+          '兴业银行', '平安银行', '交通银行', '中信银行', '中国光大银行', '华夏银行', '中国银行', '广发银行',
+            '中国邮政储蓄银行']],
+          value1:[],
+          isShow:false
         }
       },
       methods:{
-        show: function(){
+        getBank () {
+          // this.$axios.get('v1/user/cards/banks').then(res => {
+          //   for (let item in res.data) {
+          //     console.log(res.data[item]);
+          //     // this.list[0].push(res.data[item])
+          //   }
+          // })
+        },
+        show: function(){ // 显示地区选项卡触发函数
           this.$refs['picker'].show();
         },
-        select: function(){
-          this.area = arguments[2];
-          console.log(this.area);
+        select: function(){ // 确定地区后触发函数
+          this.area = arguments[2].join(',')
+
+        },
+        handleIsLong () { // 实名信息是否长期
+          this.isLong = !this.isLong
+        },
+        handleShow () { // 银行选项卡显示触发函数
+          this.isShow = true
+        },
+        onHide (type) { // 银行选项卡显示触发函数
+          this.isShow = false
+        },
+        submit () { // 信息提交函数
+
         }
+      },
+      created () {
+        // this.getBank()
       }
     }
 </script>

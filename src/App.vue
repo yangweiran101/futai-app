@@ -15,6 +15,11 @@
         }
         this.$store.commit("isWeChat", isWX());
       },
+      // Browser () {
+      //   document.querySelector('body').addEventListener('touchstart', function (ev) {
+      //     event.preventDefault();
+      //   });
+      // }
     },
     created () {
     this.isWeChat ()

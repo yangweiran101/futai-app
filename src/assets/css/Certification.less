@@ -1,4 +1,5 @@
 .certification{
+  background-color: #F1F4F8;
   .updata{
     padding: 22px 17px 0;
     margin-bottom: 17px;
@@ -40,21 +41,25 @@
         }
         input{
           margin-left: 18px;
-          color: #CDCDCD;
+          color: #333333;
           font-size: 16px;
           border: none;
           line-height: 45px;
         }
+        input::-webkit-input-placeholder {color: #CDCDCD;}
         input:focus{
           outline: none;
-          color: #555555
+        }
+        .picker{
+          /deep/.vux-popup-picker-value{
+            display: none;
+          }
         }
         .checkbox{
           width: 16px;
           height: 16px;
-          margin: 15px 8px 0 0;
-          border: 1px solid #BCBCBC;
-          background-color: #FFFFFF;
+          margin: 14px 8px 0 0;
+
         }
         span{
           color: #333333;
@@ -68,6 +73,17 @@
         }
       }
     }
+  }
+  .btn{
+    width: 359px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: #0999E4;
+    margin: 28px auto 33px;
+    font-size: 16px;
+    line-height: 40px;
+    color: #FFFFFF;
+    text-align: center;
   }
   .border{border-bottom: 1px solid #DCDCDC;}
 }
