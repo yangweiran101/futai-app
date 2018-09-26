@@ -3,12 +3,8 @@
       <Header v-if="!this.$store.state.isWeChat">推广海报图</Header>
       <div class="content">
         <!--海报轮播图-->
-        <swiper  @on-index-change=""
-                 v-model="swiperIndex"
-                 dots-position="center"
-                 height="360px"
-                 :loop="isLoop"
-                 :show-dots="show_dots">
+        <swiper  @on-index-change="" v-model="swiperIndex" dots-position="center" height="360px"
+                 :loop="isLoop" :show-dots="show_dots">
           <swiper-item v-for="(data,index) in dataList" :key="index">
             <div class="swiper-box" :class="[index == swiperIndex ? 'index-box' : '']">
               <div class="img">

@@ -1,10 +1,12 @@
 .posters{
   width: 100%;
   height: 100%;
+  background-color: #F1F4F8;
  .content{
    padding-top: 79px;
+   overflow: hidden;
    /deep/.vux-slider{
-     width: calc(252/375*100%);
+     width: calc(240/375*100%);
      margin: 0 auto;
      overflow: visible;
      .vux-swiper{
@@ -32,8 +34,11 @@
      width: 100%;
      height: 34px;
      padding: 0 75px 0 80px;
-     margin-top: 103px;
      box-sizing: border-box;
+     position: absolute;
+     bottom: 47px;
+     left: 0;
+     right: 0;
      .btn{
        color: #0999E4;
        font-size: 13px;

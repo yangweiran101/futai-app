@@ -10,7 +10,7 @@
       <div class="grade">
         <div class="grade-card"></div>
         <div class="tip">升级等级获得更多更好权益</div>
-        <div class="grade-btn">立即升级</div>
+        <div class="grade-btn" @click="goNext('Upgrade')">立即升级</div>
       </div>
 
       <!--等级权益板块-->
@@ -113,6 +113,11 @@
         return {
         }
       },
+      methods:{
+        goNext (page) {
+          this.$router.push(`/${page}`)
+        },
+      }
     }
 </script>
 

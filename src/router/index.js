@@ -7,6 +7,8 @@ import Promote from '../view/Promote'
 import My from '../view/My'
 
 //其他分页面
+import Upgrade from '../pages/Upgrade' //代理升级页面
+
 import MyWallet from '../pages/MyWallet' //首页我的钱包页面
 import BenefitList from '../pages/BenefitList' //首页收益榜页面
 import WalletDetail from '../pages/WalletDetail' //我的钱包页面
@@ -45,6 +47,7 @@ import Register from '../pages/Register' //注册页面
 
 import updata1 from '../components/updata1' //上传页面
 import updata from '../components/updata' //上传页面
+import Tree from '../components/Tree' //树页面
 
 Vue.use(Router)
 
@@ -55,6 +58,8 @@ let routes = [
   {path: '/Promote', component: Promote,meta: {title:'推广',keepAlive: false}},
   {path: '/My', component: My,meta: {title:'个人中心',keepAlive: false}},
   // 其他分页面
+  {path: '/Upgrade', component: Upgrade,meta: {title:'升级',keepAlive: false}},
+
   {path: '/MyWallet', component: MyWallet,meta: {title:'我的钱包',keepAlive: false}},
   {path: '/BenefitList', component: BenefitList,meta: {title:'收益榜',keepAlive: false}},
   {path: '/WalletDetail', component: WalletDetail,meta: {title:'我的钱包',keepAlive: false}},
@@ -92,7 +97,8 @@ let routes = [
   {path: '/Register', component: Register,meta: {title:'快速注册',keepAlive: false}},
 
   {path: '/updata1', component: updata1,meta: {title:'上传',keepAlive: false}},
-  {path: '/updata', component: updata1,meta: {title:'上传',keepAlive: false}},
+  {path: '/updata', component: updata,meta: {title:'上传',keepAlive: false}},
+  {path: '/Tree', component: Tree,meta: {title:'树状图',keepAlive: false}},
 
 ]
 

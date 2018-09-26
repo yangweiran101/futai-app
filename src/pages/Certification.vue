@@ -62,9 +62,11 @@
           </div>
           <div class="wrap clearfix border">
             <div class="left fleft">地区</div>
-            <input type="text" :focus="show" class="fleft" v-model="area" placeholder="请选择开户地区">
+            <input type="text"  class="fleft" v-model="area" placeholder="请选择开户地区">
             <div class="reset fright" @click="show"><img src="../assets/img/MyWallet/icon2.png" ></div>
-            <vue-city-picker ref="picker" @select="select"></vue-city-picker>
+            <x-address style="display:none;" title="title"  @on-shadow-change="onShadowChange"
+                       :list="addressData" placeholder="请选择开户地区"
+                       :show.sync="showAddress" @on-hide="select"></x-address>
           </div>
           <div class="wrap clearfix">
             <div class="left fleft">开户行</div>
@@ -81,14 +83,13 @@
 
 <script>
   import Header from '../components/Header'
-  import vueCityPicker from 'vue-city-bspicker'
-  import { PopupPicker } from 'vux'
+  import { PopupPicker,XAddress,ChinaAddressV4Data } from 'vux'
     export default {
       name: "Certification",
       components:{
         Header,
-        vueCityPicker,
-        PopupPicker
+        PopupPicker,
+        XAddress
       },
       data () {
         return {
@@ -98,7 +99,10 @@
           '兴业银行', '平安银行', '交通银行', '中信银行', '中国光大银行', '华夏银行', '中国银行', '广发银行',
             '中国邮政储蓄银行']],
           value1:[],
-          isShow:false
+          addressData: ChinaAddressV4Data,
+          value:[],
+          isShow:false,
+          showAddress: false
         }
       },
       methods:{
@@ -110,12 +114,18 @@
           //   }
           // })
         },
-        show: function(){ // 显示地区选项卡触发函数
-          this.$refs['picker'].show();
+        onShadowChange (ids, names) { // 每次滑动选择时将地区值赋给value
+          this.value = names
         },
-        select: function(){ // 确定地区后触发函数
-          this.area = arguments[2].join(',')
-
+        show (){ // 显示地区选项卡触发函数
+          this.showAddress = true
+        },
+        select (isSelect){ // 确定地区后，按确定将value数组转成字符串，赋给area
+          if (isSelect) {
+            this.area = this.value.join(',')
+          } else {
+            this.area = ''
+          }
         },
         handleIsLong () { // 实名信息是否长期
           this.isLong = !this.isLong
