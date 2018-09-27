@@ -61,41 +61,41 @@
             </tr>
             <tr class="td">
               <th>兑换渠道</th>
-              <th>普通合伙人</th>
-              <th>黄金合伙人</th>
-              <th>钻石合伙人</th>
+              <th :class="[grade === 1?'current':'']">普通合伙人</th>
+              <th :class="[grade === 2?'current':'']">黄金合伙人</th>
+              <th :class="[grade === 3?'current':'']">钻石合伙人</th>
             </tr>
             </thead>
             <tbody>
             <tr class="td">
               <td>中国银行</td>
-              <td>14.30</td>
-              <td>16.30</td>
-              <td>18.30</td>
+              <td :class="[grade === 1?'current':'']">14.30</td>
+              <td :class="[grade === 2?'current':'']">16.30</td>
+              <td :class="[grade === 3?'current':'']">18.30</td>
             </tr>
             <tr class="td">
               <td>中国银行</td>
-              <td>14.30</td>
-              <td>16.30</td>
-              <td>18.30</td>
+              <td :class="[grade === 1?'current':'']">14.30</td>
+              <td :class="[grade === 2?'current':'']">16.30</td>
+              <td :class="[grade === 3?'current':'']">18.30</td>
             </tr>
             <tr class="td">
               <td>中国银行</td>
-              <td>14.30</td>
-              <td>16.30</td>
-              <td>18.30</td>
+              <td :class="[grade === 1?'current':'']">14.30</td>
+              <td :class="[grade === 2?'current':'']">16.30</td>
+              <td :class="[grade === 3?'current':'']">18.30</td>
             </tr>
             <tr class="td">
               <td>中国银行</td>
-              <td>14.30</td>
-              <td>16.30</td>
-              <td>18.30</td>
+              <td :class="[grade === 1?'current':'']">14.30</td>
+              <td :class="[grade === 2?'current':'']">16.30</td>
+              <td :class="[grade === 3?'current':'']">18.30</td>
             </tr>
             <tr class="td">
               <td>中国银行</td>
-              <td>14.30</td>
-              <td>16.30</td>
-              <td>18.30</td>
+              <td :class="[grade === 1?'current':'']">14.30</td>
+              <td :class="[grade === 2?'current':'']">16.30</td>
+              <td :class="[grade === 3?'current':'']">18.30</td>
             </tr>
             </tbody>
           </x-table>
@@ -122,6 +122,7 @@
             {type:'gold'},
             {type:'diamond'},
           ],
+          grade:1,
           isLoop:true,
           show_dots:false,
           swiperIndex:0,
@@ -131,11 +132,14 @@
       methods:{
         changeIndex (currentIndex) {
           if (currentIndex == 1) {
-            this.title = '支付升级  ￥99'
+            this.title = '支付升级  ￥99';
+            this.grade = 2
           } else if (currentIndex == 2 ) {
             this.title = '支付升级  ￥199'
+            this.grade = 3
           } else {
             this.title = '当前等级'
+            this.grade = 1
           }
         }
       }

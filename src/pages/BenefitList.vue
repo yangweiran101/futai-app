@@ -34,8 +34,9 @@
           <div class="user-star fright">
             <div class="count">{{item.thumbs_up_count}}</div>
             <!--未点亮状态-->
-            <div class="icon" v-if="item.is_thumbs_up == 0" @click="likes(item.uid)">
-              <img src="../assets/img/BenefitList/icon1@1x.png">
+            <div class="icon" v-if="item.is_thumbs_up == 0" @click="likes(item.uid,index)">
+              <img src="../assets/img/BenefitList/icon1@1x.png" >
+              <img src="../assets/img/BenefitList/icon2@1x.png" >
             </div>
             <!--点亮状态-->
             <div class="icon" v-else>
@@ -61,13 +62,14 @@
           },
           getRank () {
             this.$axios.get('v1/rank').then(res => {
-              console.log(res);
+              // console.log(res);
               this.rankList = res.data
             })
           },
-          likes (id) {
+          likes (id,index) {
             this.$axios.post('v1/rank/thumbsup',{uid:id}).then(res => {
-              console.log(res);
+              // console.log(res);
+              console.log(index);
             })
           }
         },

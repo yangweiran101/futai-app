@@ -25,9 +25,10 @@
 
     <!--第二行-->
     <div class="two">
-      <div class="wrap" :class="[first?'active' :'no']" @click="getNext(1)">
+
+      <div class="wrap" :class="[first?'active' :'no']" >
         <!--主体-->
-        <div>
+        <div @click="getNext(1)">
           <div class="img"><img src="../assets/img/Tree/Head1@1x.png"></div>
           <div class="user">
             <img src="../assets/img/Tree/user.png">
@@ -51,7 +52,7 @@
           </div>
           <!--第三行-->
           <div class="three">
-            <div class="wrap" @click="getNext(1)">
+            <div class="wrap" >
               <div class="img"><img src="../assets/img/Tree/Head1@1x.png"></div>
               <div class="user">
                 <img src="../assets/img/Tree/user.png">
@@ -63,7 +64,7 @@
               </div>
               <div class="number">17600996101</div>
             </div>
-            <div class="wrap" @click="getNext(2)">
+            <div class="wrap" >
               <div class="img"><img src="../assets/img/Tree/Head1@1x.png"></div>
               <div class="user">
                 <img src="../assets/img/Tree/user.png">
@@ -75,7 +76,7 @@
               </div>
               <div class="number">17600996101</div>
             </div>
-            <div class="wrap" @click="getNext(3)">
+            <div class="wrap" >
               <div class="img"><img src="../assets/img/Tree/Head1@1x.png"></div>
               <div class="user">
                 <img src="../assets/img/Tree/user.png">
@@ -90,9 +91,10 @@
           </div>
         </div>
       </div>
-      <div class="wrap" :class="[second?'active' :'no']" @click="getNext(2)">
+
+      <div class="wrap" :class="[second?'active' :'no']" >
         <!--主体-->
-        <div>
+        <div @click="getNext(2)">
           <div class="img"><img src="../assets/img/Tree/Head1@1x.png"></div>
           <div class="user">
             <img src="../assets/img/Tree/user.png">
@@ -116,7 +118,7 @@
           </div>
           <!--第三行-->
           <div class="three">
-            <div class="wrap" @click="getNext(1)">
+            <div class="wrap" >
               <div class="img"><img src="../assets/img/Tree/Head1@1x.png"></div>
               <div class="user">
                 <img src="../assets/img/Tree/user.png">
@@ -128,7 +130,7 @@
               </div>
               <div class="number">17600996101</div>
             </div>
-            <div class="wrap" @click="getNext(2)">
+            <div class="wrap" >
               <div class="img"><img src="../assets/img/Tree/Head1@1x.png"></div>
               <div class="user">
                 <img src="../assets/img/Tree/user.png">
@@ -140,7 +142,7 @@
               </div>
               <div class="number">17600996101</div>
             </div>
-            <div class="wrap" @click="getNext(3)">
+            <div class="wrap" >
               <div class="img"><img src="../assets/img/Tree/Head1@1x.png"></div>
               <div class="user">
                 <img src="../assets/img/Tree/user.png">
@@ -155,9 +157,10 @@
           </div>
         </div>
       </div>
-      <div class="wrap" :class="[third?'active' :'no']" @click="getNext(3)">
+
+      <div class="wrap" :class="[third?'active' :'no']" >
         <!--主体-->
-        <div>
+        <div @click="getNext(3)">
           <div class="img"><img src="../assets/img/Tree/Head1@1x.png"></div>
           <div class="user">
             <img src="../assets/img/Tree/user.png">
@@ -181,7 +184,7 @@
           </div>
           <!--第三行-->
           <div class="three">
-            <div class="wrap" @click="getNext(1)">
+            <div class="wrap" >
               <div class="img"><img src="../assets/img/Tree/Head1@1x.png"></div>
               <div class="user">
                 <img src="../assets/img/Tree/user.png">
@@ -193,7 +196,7 @@
               </div>
               <div class="number">17600996101</div>
             </div>
-            <div class="wrap" @click="getNext(2)">
+            <div class="wrap" >
               <div class="img"><img src="../assets/img/Tree/Head1@1x.png"></div>
               <div class="user">
                 <img src="../assets/img/Tree/user.png">
@@ -205,7 +208,7 @@
               </div>
               <div class="number">17600996101</div>
             </div>
-            <div class="wrap" @click="getNext(3)">
+            <div class="wrap" >
               <div class="img"><img src="../assets/img/Tree/Head1@1x.png"></div>
               <div class="user">
                 <img src="../assets/img/Tree/user.png">
@@ -231,6 +234,7 @@
       data () {
         return {
           id: 0,
+          move: '',
           first:false,
           second:false,
           third:false
@@ -273,6 +277,22 @@
             line.style.width = '308px';
             two.style.width = '412px';
           }
+        },
+        handleMove (ev) {
+          ev = ev || event;
+          alert(1);
+
+          var wh = document.documentElement.clientHeight; //可见窗口高
+          var ww = document.documentElement.clientWidth;
+          var st = (document.documentElement.scrollTop || document.body.scrollTop); //滚动条高
+          var sl = (document.documentElement.scrollLeft || document.body.scrollLeft);
+          // div.style.top = (wh - 100) / 2 + st; //定位
+          // div.style.left = (ww - 300) / 2 + sl;
+          console.log(wh)
+          console.log(ww)
+          console.log(st)
+          console.log(sl)
+          console.log(ev)
         }
       }
     }

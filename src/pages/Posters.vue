@@ -16,7 +16,7 @@
 
         <!--按钮-->
         <div class="btns">
-          <div class="btn fleft"><i class="iconfont icon-xiazai"></i>保存</div>
+          <div class="btn fleft" @click="downloadImg"><i class="iconfont icon-xiazai"></i>保存</div>
           <div class="btn fright"><i class="iconfont icon-fenxiang"></i>分享专属海报</div>
         </div>
       </div>
@@ -36,11 +36,10 @@
       data () {
         return {
           dataList: [
-            {url:'http://e.hiphotos.baidu.com/image/h%3D300/sign=4a634faa022442a7b10efba5e143ad95/4d086e061d950a7bd63a3bed07d162d9f2d3c988.jpg',id:1},
-            {url:'http://e.hiphotos.baidu.com/image/h%3D300/sign=4a634faa022442a7b10efba5e143ad95/4d086e061d950a7bd63a3bed07d162d9f2d3c988.jpg',id:2},
-            {url:'http://e.hiphotos.baidu.com/image/h%3D300/sign=4a634faa022442a7b10efba5e143ad95/4d086e061d950a7bd63a3bed07d162d9f2d3c988.jpg',id:3},
-            {url:'http://e.hiphotos.baidu.com/image/h%3D300/sign=4a634faa022442a7b10efba5e143ad95/4d086e061d950a7bd63a3bed07d162d9f2d3c988.jpg',id:4},
-            {url:'http://e.hiphotos.baidu.com/image/h%3D300/sign=4a634faa022442a7b10efba5e143ad95/4d086e061d950a7bd63a3bed07d162d9f2d3c988.jpg',id:5},
+            {url:require('../assets/img/Promote/poster.png'),id:1},
+            {url:require('../assets/img/Promote/poster1.png'),id:2},
+            {url:require('../assets/img/Promote/poster2.png'),id:3},
+            {url:require('../assets/img/Promote/poster3.png'),id:4},
             ],
           isLoop:true,
           show_dots:false,
@@ -51,7 +50,7 @@
         this.getQrcodeList();
       },
       methods:{
-        getQrcodeList(){
+        getQrcodeList (){
           let that = this;
           // this.$axios.post('/tissue/shareFollowList').then(res => {
           //   if(response.data.status ==='success'){
@@ -60,6 +59,12 @@
           //   }
           // })
         },
+        downloadImg () {      //必须同源才能下载
+          let alink = document.createElement("a");
+          alink.href = this.dataList[this.swiperIndex].url;
+          alink.download = "福泰海报"; //图片名
+          alink.click();
+        }
       }
     }
 </script>

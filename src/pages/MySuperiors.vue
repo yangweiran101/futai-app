@@ -35,7 +35,7 @@
       },
       methods:{
         getData () {
-          this.$axios.get('user').then(res => {
+          this.$axios.get('v1/user').then(res => {
             console.log(res);
             this.userInfo = res.data;
             if (this.userInfo.user_type == '2') {

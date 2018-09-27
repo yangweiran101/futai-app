@@ -22,9 +22,11 @@ import PurseDetail from '../pages/PurseDetail' //钱包明细页面
 import CashAboutDetail from '../pages/CashAboutDetail' //提现明细页面
 import Detail from '../pages/Detail' //明细详情页面
 import ReviewToCash from '../pages/ReviewToCash' //提现审核中页面
+
 import MyCardBag from '../pages/MyCardBag' //我的卡包页面
 import AddCard from '../pages/AddCard' //添加银行卡页面
 import ReplaceCard from '../pages/ReplaceCard' //更换储蓄卡页面
+import AppBenefit from '../pages/AppBenefit' //平台收益图页面
 
 import PersonalData from '../pages/PersonalData' //个人资料页面
 import WeChatQRCode from '../pages/WeChatQRCode' //微信二维码页面
@@ -33,11 +35,14 @@ import AlipayBind from '../pages/AlipayBind' //支付宝绑定页面
 import Certification from '../pages/Certification' //实名认证页面
 import MySuperiors from '../pages/MySuperiors' //我的上级页面
 import AboutUs from '../pages/AboutUs' //关于我们页面
+import MyTeam from '../pages/MyTeam' //我的团队页面
 
 import Posters from '../pages/Posters' //推广海报图页面
 import InviteFriend from '../pages/InviteFriend' //邀请好友页面
 import ShowH5 from '../pages/ShowH5' //展业H5页面
 import NoviceGuidance from '../pages/NoviceGuidance' //新手指引页面
+import ShareLink from '../pages/ShareLink' //分享链接页面
+import PropagandistMaterial from '../pages/PropagandistMaterial' //宣传素材页面
 
 import Setting from '../pages/Setting' //设置页面
 import ProblemFeedback from '../pages/ProblemFeedback' //问题反馈页面
@@ -74,11 +79,14 @@ let routes = [
   {path: '/Certification', component: Certification,meta: {title:'实名认证',keepAlive: false}},
   {path: '/MySuperiors', component: MySuperiors,meta: {title:'我的上级',keepAlive: false}},
   {path: '/AboutUs', component: AboutUs,meta: {title:'关于我们',keepAlive: false}},
+  {path: '/MyTeam', component: MyTeam,meta: {title:'我的团队',keepAlive: false}},
 
   {path: '/Posters', component: Posters,meta: {title:'推广海报图',keepAlive: false}},
   {path: '/InviteFriend', component: InviteFriend,meta: {title:'邀请好友',keepAlive: false}},
   {path: '/ShowH5', component: ShowH5,meta: {title:'展业H5',keepAlive: false}},
   {path: '/NoviceGuidance', component: NoviceGuidance,meta: {title:'新手指引',keepAlive: false}},
+  {path: '/ShareLink', component: ShareLink,meta: {title:'分享链接',keepAlive: false}},
+  {path: '/PropagandistMaterial', component: PropagandistMaterial,meta: {title:'宣传素材',keepAlive: false}},
 
   {path: '/Setting', component: Setting,meta: {title:'设置',keepAlive: false}},
   {path: '/ProblemFeedback', component: ProblemFeedback,meta: {title:'问题反馈',keepAlive: false}},
@@ -89,9 +97,11 @@ let routes = [
   {path: '/CashAboutDetail', component: CashAboutDetail,meta: {title:'提现明细',keepAlive: false}},
   {path: '/Detail', component: Detail,meta: {title:'明细详情',keepAlive: false}},
   {path: '/ReviewToCash', component: ReviewToCash,meta: {title:'提现',keepAlive: false}},
+
   {path: '/MyCardBag', component: MyCardBag,meta: {title:'我的卡包',keepAlive: false}},
   {path: '/AddCard', component: AddCard,meta: {title:'添加银行卡',keepAlive: false}},
   {path: '/ReplaceCard', component: ReplaceCard,meta: {title:'更换储蓄卡',keepAlive: false}},
+  {path: '/AppBenefit', component: AppBenefit,meta: {title:'平台收益图',keepAlive: false}},
 
   {path: '/Login', component: Login,meta: {title:'登录',keepAlive: false}},
   {path: '/Register', component: Register,meta: {title:'快速注册',keepAlive: false}},

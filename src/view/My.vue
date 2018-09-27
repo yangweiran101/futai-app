@@ -66,14 +66,14 @@
           </div>
 
           <!--我的团队-->
-          <div class="wrap">
+          <div class="wrap" @click="goNext('MyTeam')">
             <div class="icon fleft two"><img src="../assets/img/My/team.png"></div>
             <span>我的团队</span>
             <div class="nextpage fright"><img src="../assets/img/MyWallet/icon2.png" ></div>
           </div>
 
           <!--平台收益图-->
-          <div class="wrap">
+          <div class="wrap" @click="goNext('AppBenefit')">
             <div class="icon fleft two"><img src="../assets/img/My/team.png"></div>
             <span>平台收益图</span>
             <div class="nextpage fright"><img src="../assets/img/MyWallet/icon2.png" ></div>

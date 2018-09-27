@@ -22,14 +22,14 @@
           <div class="tips fright">分享二维码快速增粉</div>
         </div>
         <!--分享链接-->
-        <div class="wrap">
+        <div class="wrap" @click="goNext('ShareLink')">
           <div class="img fleft"><img src="../assets/img/Promote/iconFriends@3x.png"></div>
           <div class="title fleft">分享链接</div>
           <div class="next fright"><img src="../assets/img/Promote/icon1@3x.png" alt=""></div>
           <div class="tips fright">分享收益链接</div>
         </div>
         <!--宣传素材-->
-        <div class="wrap">
+        <div class="wrap" @click="goNext('PropagandistMaterial')">
           <div class="img fleft"><img src="../assets/img/Promote/iconposter@3x.png"></div>
           <div class="title fleft">宣传素材</div>
           <div class="next fright"><img src="../assets/img/Promote/icon1@3x.png" alt=""></div>

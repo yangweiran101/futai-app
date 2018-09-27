@@ -7,9 +7,9 @@ import store from '../store/index'
 let xhr = {
   get(url,params){
     return new Promise((resolve,reject) => {
-      let token = `${store.state.token}`
+      let token = `${store.state.token}`;
       // console.log(token);
-      instance.defaults.headers.Authorization = token
+      instance.defaults.headers.Authorization = token;
       instance.get(url,params).then(res => {
         resolve(res.data)
       }).catch(err => {
