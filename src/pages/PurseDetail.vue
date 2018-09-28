@@ -43,10 +43,20 @@
         return {
           option: 1,
           isData: false,
-          DetailData:[]
+          DetailData:[],
+          last_page:0,
+          page:0,
         }
       },
       methods: {
+        handleScroll () {
+          let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+          // console.log(scrollTop);
+          // if (scrollTop > 800&&this.page < this.last_page) {
+          //   this.page ++;
+          //   this.getDetail(1)
+          // }
+        },
         getDetail (id) {
           this.option = id
           let status = null
@@ -56,7 +66,7 @@
             status = 2
           }
           this.$axios.get(`v1/user/finance/log/credit2?status=${status}`).then(res => {
-            // console.log(res);
+            console.log(res);
             if (res.total == 0) {
               this.isData = true
             }
@@ -64,6 +74,9 @@
           })
 
         }
+      },
+      mounted () {
+        window.addEventListener('scroll',this.handleScroll)
       },
       created () {
         this.getDetail(1)

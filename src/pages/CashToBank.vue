@@ -23,7 +23,7 @@
         <div class="left-tip fleft">
           <div class="name">{{BankInfo.bank_name}}</div>
           <div class="card">储蓄卡</div>
-          <div class="number">{{BankInfo.card_number}}</div>
+          <div class="number">{{BankInfo.card_num}}</div>
         </div>
         <div class="icon fright"><img src="../assets/img/MyWallet/icon2.png"></div>
       </div>
@@ -31,7 +31,7 @@
       <div class="content-money clearfix">
         <div class="limit fleft">提现金额</div>
         <div class="use fleft">当前可提 <span>{{limit}}元</span></div>
-        <div class="all fright" @keyup="all($event)">全部提现</div>
+        <div class="all fright" @click="all()">全部提现</div>
       </div>
       <input type="number" placeholder="请输入提现金额" class="count" v-model="money">
       <div class="service-money">手续费: <span>{{ServiceCharge}}</span>元</div>
@@ -73,22 +73,22 @@
         isBinding: true,
         PayWord: '',
         money: null,
-        ServiceCharge: null,
+        ServiceCharge: 1,
         BankInfo:{},
-        limit: 5000
+        limit: 100
       }
     },
     methods:{
-      all (ev){
-        if(ev.keyCode == 13){
-          if (this.money*BankInfo.withdraw_rate*0.01 > 25) {
-            this.ServiceCharge = 25
-          } else if (this.money*BankInfo.withdraw_rate*0.01 < 1) {
-            this.ServiceCharge = 25
-          } else {
-            this.ServiceCharge = this.money*BankInfo.withdraw_rate*0.01
-          }
-        }
+      all (){
+        this.money = this.limit
+        // if (this.money*this.BankInfo.withdraw_rate*0.01 > 25) {
+        //   this.ServiceCharge = 25
+        // } else if (this.money*this.BankInfo.withdraw_rate*0.01 < 1) {
+        //   this.ServiceCharge = 1
+        // } else {
+        //   this.ServiceCharge = (this.money*this.BankInfo.withdraw_rate*0.01).toFixed(2)
+        // }
+
       },
       getData () {
         this.$axios.get('v1/user').then(res => {
@@ -107,7 +107,7 @@
       goCash () {
         if (this.money == '') {
           alert('请输入提现金额')
-        }else if (this.money > this.limit) {
+        }else if (Number(this.money) > this.limit) {
           alert('输入金额超出余额')
         } else {
           let payPwd = document.querySelector('#payPwd');
@@ -117,9 +117,33 @@
       },
       show (ev){
         if(ev.keyCode == 13){
-          this.$router.push('/ReviewToCash')
+          this.$axios.post('v1/user/withdraw/create',{
+            type:'bank',
+            money:this.money,
+            trade_password:this.PayWord}).then(res => {
+              console.log(res)
+            if (res.status == 'success') {
+              alert(res.message)
+              this.$router.push({path:'/ReviewToCash',query:{count:this.money,rate:this.ServiceCharge}})
+            } else {
+              alert(res.message)
+              this.getData()
+            }
+          })
+
         }
       },
+    },
+    watch:{
+      money (newVal, oldVal) {
+        if (this.money*this.BankInfo.withdraw_rate*0.01 > 25) {
+          this.ServiceCharge = 25
+        } else if (this.money*this.BankInfo.withdraw_rate*0.01 < 1) {
+          this.ServiceCharge = 1
+        } else {
+          this.ServiceCharge = (this.money*this.BankInfo.withdraw_rate*0.01).toFixed(2)
+        }
+      }
     },
     created () {
       this.getData()

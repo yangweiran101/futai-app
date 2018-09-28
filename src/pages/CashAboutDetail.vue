@@ -23,16 +23,16 @@
     <div class="detail" v-if="!isData">
       <div class="wrap" v-for="(item,index) in DetailData" :key="index">
         <div class="left fleft">
-          <div class="title">订单编号：{{item.number}}</div>
-          <div class="class">{{item.mode}}<span>{{item.count}}</span></div>
+          <div class="title">订单编号：{{item.ordersn}}</div>
+          <div class="class">{{item.type}}<span>{{item.money}}</span></div>
         </div>
-        <div class="next fright" @click="goNext()">
+        <div class="next fright" @click="goNext(item.id)">
           <img src="../assets/img/MyWallet/icon2.png">
         </div>
         <div class="right fright">
-          <div class="time">{{item.time}}</div>
+          <!--<div class="time">{{item.updated_at}}</div>-->
           <div class="status"
-               :class="{'pass':item.status === '已通过','nopass':item.status === '未通过','check':item.status === '审核中'}">
+               :class="{'pass':item.status === '已结算','nopass':item.status === '已驳回'||'结算失败','check':item.status === '结算中'||'待结算'}">
             {{item.status}}
           </div>
         </div>
@@ -50,58 +50,67 @@
         return {
           isData:false,
           option: 1,
-          DetailData:[{number:'购买XXXXXX商品',mode:'支付宝',time:'18/11/15',count:100,status:'已通过'},
-            {number:'支付宝****3648提现',mode:'银行卡',time:'16/11/13',count:200,status:'未通过'},
-            {number:'购买yyyyy商品',mode:'支付宝',time:'17/06/15',count:500,status:'已通过'},
-            {number:'购买aaaa商品',mode:'银行卡',time:'18/08/06',count:100,status:'未通过'},
-            {number:'购买666商品',mode:'支付宝',time:'17/11/15',count:100,status:'审核中'},
-            {number:'购买XXXXXX商品',mode:'银行卡',time:'15/11/15',count:100,status:'已通过'},],
-          total:[
-            {number:'购买XXXXXX商品',mode:'支付宝',time:'18/11/15',count:100,status:'已通过'},
-            {number:'支付宝****3648提现',mode:'银行卡',time:'16/11/13',count:200,status:'未通过'},
-            {number:'购买yyyyy商品',mode:'支付宝',time:'17/06/15',count:500,status:'已通过'},
-            {number:'购买aaaa商品',mode:'银行卡',time:'18/08/06',count:100,status:'未通过'},
-            {number:'购买666商品',mode:'支付宝',time:'17/11/15',count:100,status:'审核中'},
-            {number:'购买XXXXXX商品',mode:'银行卡',time:'15/11/15',count:100,status:'已通过'},
-          ],
+          DetailData:[],
+          page:1,
+          last_page: 0,
+          scroll:0
         }
       },
       components: {
         Header
       },
       methods:{
+        handleScroll () {
+          let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+          // console.log(scrollTop);
+          if (scrollTop > 800&&this.page < this.last_page) {
+            this.page ++;
+            this.getDetail(1)
+          }
+        },
         getDetail (id) {
           this.option = id
-          //选择全部时
-          // if (id === 1) {
-          //   this.DetailData = []
-          //   this.DetailData = this.total
-          //   // console.log(this.DetailData);
-          // }
-          // //选择收入时
-          // if (id === 2) {
-          //   this.DetailData = []
-          //   this.total.forEach(val => {
-          //     if (val.count > 0) {
-          //       this.DetailData.push(val)
-          //     }
-          //   })
-          //   // console.log(this.DetailData);
-          // }
-          // //选择支出时
-          // if (id === 3) {
-          //   this.DetailData = []
-          //   this.total.forEach(val => {
-          //     if (val.count < 0) {
-          //       this.DetailData.push(val)
-          //     }
-          //   })
-          //   // console.log(this.DetailData);
-          // }
+          if (this.option === 1) {
+            this.$axios.post(`v1/user/withdraw/log?page=${this.page}&status=${2}`).then(res => {
+              this.last_page = res.data.last_page;
+              this.DetailData = [...this.DetailData,...res.data.data];
+              console.log(this.DetailData);
+              this.DetailData.forEach(item => {
+                //把type类型数字变成汉字
+                if (item.type === 1) {
+                  item.type = '银行卡'
+                } else if (item.type === 2) {
+                  item.type = '支付宝'
+                } else if (item.type === 3){
+                  item.type = '微信'
+                }
+                //把状态数字变成汉字
+                if (item.status === 1) {
+                  item.status = '待结算'
+                } else if (item.status === 2) {
+                  item.status = '已结算'
+                } else if (item.status === 3) {
+                  item.status = '已驳回'
+                } else if (item.status === 4) {
+                  item.status = '结算中'
+                } else if (item.status === 5) {
+                  item.status = '结算失败'
+                }
+                //把审核日期时间变成日期
+
+              })
+            })
+          } else {
+            // this.DetailData = []
+          }
+
         },
-        goNext () {
-          this.$router.push('/Detail')
+        goNext (id) {
+          this.$router.push({path:'/Detail',query:{id}})
         }
+      },
+      mounted () {
+        window.addEventListener('scroll',this.handleScroll)
       },
       created () {
         this.getDetail(1)

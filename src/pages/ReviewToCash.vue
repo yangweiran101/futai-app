@@ -14,19 +14,19 @@
         <div class="detail">
           <div class="wrap">
             <div class="left fleft">提现金额：</div>
-            <div class="right fright">￥100</div>
+            <div class="right fright">￥{{money}}</div>
           </div>
           <div class="wrap">
             <div class="left fleft">提现手续费：</div>
-            <div class="right fright">￥1</div>
+            <div class="right fright">￥{{rate}}</div>
           </div>
           <div class="wrap">
             <div class="left fleft">实际到账金额：</div>
-            <div class="right fright">￥99</div>
+            <div class="right fright">￥{{money}}</div>
           </div>
         </div>
         <!--按钮-->
-        <div class="btn">我知道了</div>
+        <div class="btn" @click="back">我知道了</div>
       </div>
     </div>
 </template>
@@ -37,6 +37,26 @@
       name: "ReviewToCash",
       components:{
         Header
+      },
+      data () {
+        return {
+          money:0,
+          rate:0,
+        }
+      },
+      methods:{
+        getData () {
+          let money = this.$route.query.count;
+          let rate = this.$route.query.rate;
+          this.money = money;
+          this.rate = rate;
+        },
+        back () {
+          this.$router.push('/')
+        }
+      },
+      created () {
+        this.getData()
       }
     }
 </script>
